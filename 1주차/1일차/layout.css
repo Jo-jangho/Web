@@ -1,0 +1,118 @@
+*
+{
+  box-sizing: border-box;
+}
+
+div
+{
+	color:black;
+  font-weight:bold;
+  text-align:center;
+  vertical-align: middle;
+  font-size:20px;
+  margin: 5px;
+}
+
+p
+{
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  color: red;
+}
+
+.content
+{
+  align-content: center;
+  background-color: yellowgreen;
+  margin: 0px;
+  width : 80%;
+  float: left;
+}
+
+.remocon
+{
+  border: 1px solid black;
+  width: 15%;
+  height: 300px;
+  top: 50px;
+  left: 80%;
+  position: absolute;
+  float: left;
+}
+
+#remocon
+{
+  height: 300px;
+  vertical-align: bottom;
+}
+
+.headerLeft
+{
+  top: 10px;
+  left: 8px;
+  width: 30%;
+  height: 50px;
+  border: 1px solid black;
+  position: absolute;
+}
+
+.headerRight
+{
+  top: 10px;
+  left: 49%;
+  width: 30%;
+  height: 50px;
+  border: 1px solid black;
+  position: absolute;
+}
+
+.navigation
+{
+  overflow: hidden;
+  height:50px;
+  border: 1px solid black;
+}
+
+.aside
+{
+  display: inline-block;
+	float:left;
+	overflow:hidden;
+	width:17%;
+  height:300px;
+  border: 1px solid black;
+}
+
+.section
+{
+  display: inline-block;
+	float:left;
+	overflow:hidden;
+	width:40%;
+  height:245px;
+  border: 1px solid black;
+}
+
+.section2
+{
+  display: inline-block;
+	float:left;
+	overflow:hidden;
+	width:81%;
+  height:43px;
+  border: 1px solid black;
+}
+
+.footer
+{
+  height:45px;
+  border: 1px solid black;
+}
+
+.warp
+{
+  position: relative;
+  margin: 0px;
+  overflow:hidden;
+}﻿﻿
