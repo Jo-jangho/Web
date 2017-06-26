@@ -52,7 +52,7 @@ p
 .headerLeft
 {
   display: inline-block;
-  width: 100px;
+  width: 195px;
   height: 50px;
   border: 1px solid black;
 }
@@ -60,7 +60,7 @@ p
 .headerRight
 {
   display: inline-block;
-  width: 100px;
+  width: 195px;
   height: 50px;
   border: 1px solid black;
   position: relative;
