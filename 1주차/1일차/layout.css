@@ -9,12 +9,12 @@ div
   font-weight:bold;
   text-align:center;
   vertical-align: middle;
-  font-size:20px;
   margin: 5px;
 }
 
 p
 {
+  display: inline-block;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
@@ -25,20 +25,22 @@ p
 {
   align-content: center;
   background-color: yellowgreen;
-  margin: 0px;
-  width : 80%;
+  margin: auto;
+  width : 500px;
   float: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .remocon
 {
   border: 1px solid black;
-  width: 15%;
+  width: 150px;
   height: 300px;
-  top: 50px;
-  left: 80%;
-  position: absolute;
-  float: left;
+  float: right;
 }
 
 #remocon
@@ -49,22 +51,20 @@ p
 
 .headerLeft
 {
-  top: 10px;
-  left: 8px;
-  width: 30%;
+  display: inline-block;
+  width: 100px;
   height: 50px;
   border: 1px solid black;
-  position: absolute;
 }
 
 .headerRight
 {
-  top: 10px;
-  left: 49%;
-  width: 30%;
+  display: inline-block;
+  width: 100px;
   height: 50px;
   border: 1px solid black;
-  position: absolute;
+  position: relative;
+  right: 0px;
 }
 
 .navigation
@@ -76,30 +76,27 @@ p
 
 .aside
 {
-  display: inline-block;
 	float:left;
 	overflow:hidden;
-	width:17%;
+	width:50px;
   height:300px;
   border: 1px solid black;
 }
 
 .section
 {
-  display: inline-block;
 	float:left;
 	overflow:hidden;
-	width:40%;
+	width:210px;
   height:245px;
   border: 1px solid black;
 }
 
 .section2
 {
-  display: inline-block;
 	float:left;
 	overflow:hidden;
-	width:81%;
+  width: 430px;
   height:43px;
   border: 1px solid black;
 }
@@ -112,7 +109,6 @@ p
 
 .warp
 {
-  position: relative;
   margin: 0px;
   overflow:hidden;
 }﻿﻿
