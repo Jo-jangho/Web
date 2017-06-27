@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <a id="target" href="http://opentutorials.org">opentutorials</a>
+    <script>
+        var t = document.getElementById('target');
+        console.log(t.getAttribute('gref'));
+        t.setAttribute('title', 'opentutorials.org');
+        console.log(t.hasAttribute('title'));
+        t.removeAttribute('title');
+        console.log(t.hasAttribute('title'));
+    </script>
+</body>
+</html>

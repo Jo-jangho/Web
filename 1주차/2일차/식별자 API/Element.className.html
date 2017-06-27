@@ -1,0 +1,15 @@
+<html>
+<body>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li id="active">JavaScript</li>
+    </ul>
+    <script>
+        var active = document.getElementById('active');
+        active.className = "important current";
+        console.log(active.className);
+        active.className += " readed";
+    </script>
+</body>
+</html>
