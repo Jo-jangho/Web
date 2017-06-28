@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-body
-{
-    /*text-align: center;*/
-    /*min-width: 700px;*/
-}
-
 div {
     color: black;
     font-weight: bold;
@@ -24,18 +18,31 @@ p {
     margin: 0px;
 }
 
-.remocon {
-    border: 1px solid black;
-    width: 150px;
-    height: 200px;
+.remoconParent {
     overflow: auto;
+    height: 475px;
+    display: inline-block;
+}
+
+.remoconChild {
+    border: 1px solid black;
+    width: 100px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+}
+
+.contentParent {
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+    overflow: hidden;
     display: inline-block;
 }
 
 .content {
     background-color: antiquewhite;
     width: 500px;
-    display: inline-block;
     overflow: hidden;
 }
 
@@ -44,7 +51,8 @@ p {
     line-height: 190px;
 }
 
-.left, .right {
+.left,
+.right {
     display: inline-block;
     width: 157px;
     height: 50px;
@@ -52,7 +60,7 @@ p {
     float: left;
 }
 
-.p{
+.p {
     display: inline-block;
     width: 155px;
     height: 20px;
