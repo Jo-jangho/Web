@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <ul id="list">
+        <li>empty</li>
+        <li>empty</li>
+        <li>empty</li>
+        <li>empty</li>
+    </ul>
+    <input id="excute_btn" type="button" value="excute"/>
+    <script type="text/javascript">
+        function addEvent(target, eventType, eventHandler, useCapture)
+        {
+            if(target.addEventListener)
+            {
+                target.addEvnetListener(eventType, eventHandler, useCapture?useCapture:false);
+            }
+            else if(target.attachEvent)
+            {
+                var r = target.attachEvent("on" + eventType, eventHandler);
+            }
+        }
+        
+        function clickHandler(event)
+        {
+            var nav = document.getElementById('list');
+            for(var i = 0 ; i < nav.childNodes.length ; i++)
+            {
+                var child = nav.childNodes[i];
+                if(child.nodeType == 3)
+                    continue;
+                
+                child.innerText = 'Coding everybody';
+            }
+        }
+        
+        addEvent(document.getElementById('excute_btn'), 'click', clickHandler);
+    </script>
+</body>
+</html>

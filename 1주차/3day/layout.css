@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body
+{
+    /*text-align: center;*/
+    /*min-width: 700px;*/
+}
+
+div {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+}
+
+p {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    color: red;
+    margin: 0px;
+}
+
+.remocon {
+    border: 1px solid black;
+    width: 150px;
+    height: 200px;
+    overflow: auto;
+    display: inline-block;
+}
+
+.content {
+    background-color: antiquewhite;
+    width: 500px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#remocon {
+    overflow: hidden;
+    line-height: 190px;
+}
+
+.left, .right {
+    display: inline-block;
+    width: 157px;
+    height: 50px;
+    border: 1px solid black;
+    float: left;
+}
+
+.p{
+    display: inline-block;
+    width: 155px;
+    height: 20px;
+    float: left;
+}
+
+.nav {
+    clear: both;
+    overflow: hidden;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.aside {
+    float: left;
+    overflow: hidden;
+    width: 50px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.main {
+    float: left;
+    overflow: hidden;
+    width: 210px;
+    height: 245px;
+    border: 1px solid black;
+}
+
+.mainfoot {
+    float: left;
+    overflow: hidden;
+    width: 430px;
+    height: 43px;
+    border: 1px solid black;
+}
+
+.footer {
+    clear: both;
+    height: 45px;
+    border: 1px solid black;
+}

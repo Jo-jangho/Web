@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+p {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    color: red;
+}
+
+.content {
+    align-content: center;
+    background-color: yellowgreen;
+    margin: auto;
+    width: 500px;
+    float: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.remocon {
+    border: 1px solid black;
+    width: 150px;
+    height: 300px;
+    float: right;
+}
+
+#remocon {
+    height: 300px;
+    vertical-align: bottom;
+}
+
+.headerLeft {
+    display: inline-block;
+    width: 195px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.headerRight {
+    display: inline-block;
+    width: 195px;
+    height: 50px;
+    border: 1px solid black;
+    position: relative;
+    right: 0px;
+}
+
+.navigation {
+    overflow: hidden;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.aside {
+    float: left;
+    overflow: hidden;
+    width: 50px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.section {
+    float: left;
+    overflow: hidden;
+    width: 210px;
+    height: 245px;
+    border: 1px solid black;
+}
+
+.section2 {
+    float: left;
+    overflow: hidden;
+    width: 430px;
+    height: 43px;
+    border: 1px solid black;
+}
+
+.footer {
+    height: 45px;
+    border: 1px solid black;
+}
+
+.warp {
+    margin: 0px;
+    overflow: hidden;
+}
