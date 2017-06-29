@@ -2,52 +2,42 @@
     box-sizing: border-box;
 }
 
-div {
-    color: black;
-    font-weight: bold;
+body{
     text-align: center;
+}
+
+div {
     margin: 5px;
 }
 
 p {
     display: inline-block;
     text-align: center;
-    vertical-align: middle;
     font-weight: bold;
     color: red;
     margin: 0px;
 }
 
-.remoconParent {
-    overflow: auto;
-    height: 475px;
+container {
     display: inline-block;
 }
 
-.remoconChild {
+.remocon {
     border: 1px solid black;
     width: 100px;
     height: 200px;
     position: relative;
-    top: 100px;
-}
-
-.contentParent {
-    text-align: center;
-    margin: 0 auto;
-    width: 500px;
-    overflow: hidden;
-    display: inline-block;
+    left: 520px;
+    top: -350px;
 }
 
 .content {
     background-color: antiquewhite;
     width: 500px;
-    overflow: hidden;
+    display: inline-block;
 }
 
 #remocon {
-    overflow: hidden;
     line-height: 190px;
 }
 
@@ -69,14 +59,12 @@ p {
 
 .nav {
     clear: both;
-    overflow: hidden;
     height: 50px;
     border: 1px solid black;
 }
 
 .aside {
     float: left;
-    overflow: hidden;
     width: 50px;
     height: 300px;
     border: 1px solid black;
@@ -84,7 +72,6 @@ p {
 
 .main {
     float: left;
-    overflow: hidden;
     width: 210px;
     height: 245px;
     border: 1px solid black;
@@ -92,7 +79,6 @@ p {
 
 .mainfoot {
     float: left;
-    overflow: hidden;
     width: 430px;
     height: 43px;
     border: 1px solid black;
