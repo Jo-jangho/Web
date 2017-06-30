@@ -4,15 +4,17 @@
 
 html {
     background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     margin: 0 auto;
+    padding: 0;
     width: 980px;
 }
 
 /* -webkit은 스크롤바 색상전환을 위해 사용했습니다. (Safari, Chrome용)*/
-
 .game_list::-webkit-scrollbar {
     width: 20px;
 }
@@ -34,8 +36,7 @@ body {
     background: #e66303;
 }
 
-#logo,
-.serch {
+.float_left {
     float: left;
 }
 
@@ -70,6 +71,7 @@ body {
     text-align: left;
     background-color: #e66303;
     border-right: 10px solid #e66303;
+    
     /* 스크롤바 색상외에 나머지는 배경색과 같게 했습니다. */
     overflow-y: scroll;
     overflow-x: hidden;
@@ -108,15 +110,12 @@ p.first {
     background-color: #ff821f;
 }
 
-.banner {
-    float: left;
-}
-
 .banner>img {
     margin-top: 10px;
     float: left;
 }
 
+/* id부여 외에 다른 방법을 찾지 못했습니다. */
 #banner2,
 #banner4 {
     margin-left: 10px;
