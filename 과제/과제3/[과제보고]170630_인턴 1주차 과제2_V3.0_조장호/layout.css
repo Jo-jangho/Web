@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, p {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    width: 760px;
+    height: 100%;
+}
+
+p, span {
+    font-family: 돋움;
+    font-size: 12px;
+}
+
+.title {
+    border-bottom: 2px solid blue;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px gray;
+}
+
+.title>img {
+    display: inline-block;
+}
+
+.title>p {
+    display: inline-block;
+    font-family: 돋움;
+    font-size: 12px;
+    margin: 0;
+    margin-top: 8px;
+    float: right;
+}
+
+.user_info {    
+    border: 2px solid gray;
+}
+
+.user {
+    float: left;
+    padding-left: 29px;
+    padding-top: 20px;
+    display: inline-block;
+    width: 250px;
+    border-right: 1px solid gray;
+}
+
+.user>img {
+    float: left;
+}
+
+.user>p {
+    float: left;    
+    padding-left: 21px;
+}
+
+#plat {
+    color: red;
+    font-size: 18px;
+}
+
+.point_att {
+    float: left;
+    text-align: center;
+    padding-top: 31px;
+    color: red;
+    font-weight: bold;
+}
+
+.all_point {
+    width: 170px;
+}
+
+.threeM_point {
+    width: 168px;
+}
+
+.charge {
+    width: 168px;
+}
+
+.gift_credit {
+    clear: both;
+    float: left;
+    padding-left: 36px;
+    padding-top: 9px;
+    width: 250px;
+}
+
+.gift_credit>p {
+    margin-left: 6px;
+}
+
+.s_coupon {
+    float: left;
+    width: 120px;
+    padding-left: 28px;
+    padding-top: 19px;
+    text-align: center;
+}
+
+.pb_coupon {
+    float: left;
+    width: 125px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.a_coupon {
+    float: left;
+    width: 125px;
+    padding-top: 17px;
+    text-align: center;
+}
+
+.title2 {
+    float: left;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.title2>img,
+.title2>p {
+    float: left;
+}
+
+.benefit_table {
+    border: 1px solid gray;
+    text-align: center;
+    float: left;
+}
+
+.grade_simpol {
+    float: left;
+    width: 103px;
+}
+
+.grade_simpol>img:first-child {
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 13px;
+}
+
+.tr_start>p:first-child {
+    margin: 50px 27px 0px 27px;
+}
+
+.tr_start>img {
+    display: block;
+    position: relative;
+    top: 106px;
+    left: 36px;
+    margin: 0;
+}
+
+.tr_start {
+    clear: both;
+    float: left;
+    width: 140px;
+    padding-bottom: 60px;
+}
+
+.tr_start>p:first-child {
+    text-decoration: underline;
+    color: blue;
+}
+
+.point_value {
+    float: left;
+    width: 103px;
+    font-weight: bold;
+}
+
+.point_value>p {    
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.point_value2 {
+    float: left;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.point_value2>div {
+    background-color: red;
+    color: white;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.coupon {
+    float: left;
+    width: 103px;
+}
+
+.free_coupon {
+    position: relative;
+    left: 9px;
+    top: 27px;
+}
+
+.tender_coupon {
+    position: relative;
+    left: 9px;
+    top: 23px;
+}
+
+.coupon>div {
+    background-color: gray;
+    color: white;
+    width: 85px;
+    height: 20px;
+    font-size: 15px;
+    display: block;
+    border: 0 none;
+}
+
+.coupon>img {
+    display: block;
+    position: relative;
+    left: 9px;
+    top: 5px;
+}
+
+.coupon>p {
+    position: relative;
+    top: -10px;
+}
+
+.empty {
+    line-height: 178px;
+}
+
+.certi_stat {
+    float: left;
+    background-color: #f4f4f4;
+    padding-left: 39px;  
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.certi_stat>img {
+    margin-right: 8px;
+    float: left;
+}
+
+.manage_point {
+    float: left;
+    width: 100%;
+    line-height: 35px;
+    font-size: 15px;
+}
+
+.manage_point>div {
+    width: 140px;
+    height: 35px;
+    float: left;
+    background-color: #f6f6f6;
+    font-weight: bold;
+}
+
+.manage_point>p {
+    float: left;
+}
+
+.manage_point>p>span {
+    color: red;
+    font-weight: bold;
+}
+
+.manage_point>img {
+    float: right;
+    display: box;
+    line-height: 35px;
+    margin-top: 7px;
+    margin-right: 8px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
