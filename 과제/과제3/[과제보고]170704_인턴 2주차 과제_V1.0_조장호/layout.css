@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, div, p {
+html, body, p {
     margin: 0;
     padding: 0;
 }
@@ -19,14 +19,18 @@ body {
 
 p, span {
     font-family: 돋움;
-    font-size: 12px;
+    font-size: 10px;
+}
+
+span {    
+    color: red;
+    font-weight: bold;
 }
 
 .title {
     border-bottom: 2px solid blue;
     padding-top: 10px;
     margin-bottom: 10px;
-    box-shadow: 1px 1px gray;
 }
 
 .title>img {
@@ -43,16 +47,23 @@ p, span {
 }
 
 .user_info {    
-    border: 2px solid gray;
+    border: 2px solid #ddd;
+}
+
+.user_info>div:first-child {
+    border-bottom: 1px solid #ddd;
+    height: 100%;
+    float: left;
 }
 
 .user {
     float: left;
     padding-left: 29px;
     padding-top: 20px;
+    padding-bottom: 11px;
     display: inline-block;
     width: 250px;
-    border-right: 1px solid gray;
+    border-right: 1px solid #ddd;
 }
 
 .user>img {
@@ -62,9 +73,10 @@ p, span {
 .user>p {
     float: left;    
     padding-left: 21px;
+    padding-top: 20px;
 }
 
-#plat {
+b~b {
     color: red;
     font-size: 18px;
 }
@@ -72,17 +84,25 @@ p, span {
 .point_att {
     float: left;
     text-align: center;
-    padding-top: 31px;
+    margin-top: 21px;
+    padding-top: 10px;
+}
+
+.point_att>p {
+    font-size: 15px;
     color: red;
     font-weight: bold;
+    line-height: 20px;
 }
 
 .all_point {
     width: 170px;
+    border-right: 1px solid #ddd;
 }
 
 .threeM_point {
     width: 168px;
+    border-right: 1px solid #ddd;
 }
 
 .charge {
@@ -94,7 +114,9 @@ p, span {
     float: left;
     padding-left: 36px;
     padding-top: 9px;
+    padding-bottom: 2px;
     width: 250px;
+    border-right: 1px solid #ddd;
 }
 
 .gift_credit>p {
@@ -104,58 +126,103 @@ p, span {
 .s_coupon {
     float: left;
     width: 120px;
-    padding-left: 28px;
-    padding-top: 19px;
+    position: relative;
+    left: 28px;
+    top: 19px;
     text-align: center;
+    border-right: 1px solid #ddd;
 }
 
 .pb_coupon {
     float: left;
     width: 125px;
-    padding-top: 8px;
+    position: relative;
+    left: 28px;
+    top: 8px;
     text-align: center;
 }
 
 .a_coupon {
     float: left;
     width: 125px;
-    padding-top: 17px;
+    position: relative;
+    left: 28px;
+    top: 17px;
     text-align: center;
+    border-left: 1px solid #ddd;
 }
 
 .title2 {
     float: left;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 22px;
+    padding-bottom: 10px;
 }
 
-.title2>img,
-.title2>p {
+.title2>* {
     float: left;
+    margin-right: 5px;
 }
 
 .benefit_table {
-    border: 1px solid gray;
     text-align: center;
     float: left;
+    border-top: 2px solid #C6C6C6;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
-.grade_simpol {
+.tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.tr1>div:first-child {
+    height: 148px;
+    padding-top: 64px;
+}
+
+.tr2>div:first-child {
+    height: 178px;
+    padding-top: 79px;
+}
+
+.tr2>div 
+{
+    height: 178px;
+}
+
+.tr3>div:first-child {
+    height: 115px;
+    padding-top: 47px;
+}
+
+.tr4>div:first-child {
+    height: 94px;
+    padding-top: 37px;
+}
+
+.grade_simbol {
     float: left;
     width: 103px;
+    height: 148px;
+    border-right: 1px solid #ddd;
 }
 
-.grade_simpol>img:first-child {
+.grade_simbol>img:first-child {
     margin-left: 23px;
     margin-right: 23px;
     margin-top: 13px;
 }
 
-.tr_start>p:first-child {
-    margin: 50px 27px 0px 27px;
+.member_grade {
+    height: 148px;
 }
 
-.tr_start>img {
+.member_grade>p {
+    margin-top: 30px;
+}
+
+.member_grade>img {
     display: block;
     position: relative;
     top: 106px;
@@ -167,7 +234,7 @@ p, span {
     clear: both;
     float: left;
     width: 140px;
-    padding-bottom: 60px;
+    border-right: 1px solid #ddd;
 }
 
 .tr_start>p:first-child {
@@ -179,11 +246,13 @@ p, span {
     float: left;
     width: 103px;
     font-weight: bold;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .point_value>p {    
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .point_value2 {
@@ -194,39 +263,42 @@ p, span {
 }
 
 .point_value2>div {
-    background-color: red;
+    background-color: #E30000;
     color: white;
     width: 80px;
     height: 20px;
     text-align: center;
     font-size: 12px;
+    margin-top: 10px;
+    border: 1px solid #A60000;
 }
 
 .coupon {
     float: left;
     width: 103px;
+    border-right: 1px solid #ddd;
 }
 
-.free_coupon {
+.coupon_box {
     position: relative;
     left: 9px;
-    top: 27px;
+    top: 32px;
 }
 
 .tender_coupon {
     position: relative;
     left: 9px;
-    top: 23px;
+    top: 36px;
 }
 
 .coupon>div {
-    background-color: gray;
+    background-color: #757575;
     color: white;
     width: 85px;
     height: 20px;
     font-size: 15px;
     display: block;
-    border: 0 none;
+    border: 1px solid #616161;
 }
 
 .coupon>img {
@@ -237,20 +309,49 @@ p, span {
 }
 
 .coupon>p {
+    font-size: 12px;
     position: relative;
-    top: -10px;
+    top: -5px;
+}
+
+.coupon2>img {
+    position: relative;
+    top: 13px;
+    left: 9px;
+}
+
+.coupon2>p {
+    position: relative;
+    top: 0px;
+}
+
+.coupon3>img {
+    position: relative;
+    top: 16px;
+    left: 7px;
+}
+
+.coupon3>p {
+    position: relative;
+    top: 20px;
 }
 
 .empty {
     line-height: 178px;
 }
 
+.empty2 {
+    line-height: 94px;
+}
+
 .certi_stat {
     float: left;
+    width: 100%;
     background-color: #f4f4f4;
     padding-left: 39px;  
     padding-top: 10px;
     padding-bottom: 10px;
+    border: 1px solid #ddd;
 }
 
 .certi_stat>img {
@@ -262,7 +363,9 @@ p, span {
     float: left;
     width: 100%;
     line-height: 35px;
-    font-size: 15px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-top: 1px solid #4d4a4a;
 }
 
 .manage_point>div {
@@ -271,27 +374,33 @@ p, span {
     float: left;
     background-color: #f6f6f6;
     font-weight: bold;
+    text-align: center;
 }
 
 .manage_point>p {
     float: left;
-}
-
-.manage_point>p>span {
-    color: red;
-    font-weight: bold;
+    padding-left: 5px;
 }
 
 .manage_point>img {
     float: right;
-    display: box;
     line-height: 35px;
     margin-top: 7px;
     margin-right: 8px;
+}
+
+.tr_end {
+    border-right: 0px none;
 }
 
 .clearfix:after {
     content: "";
     display: block;
     clear: both;
+    /* 
+    찾아봤더니 CSS 핵이라는 사람도 있고,
+    이렇게 쓰는 게 제일 좋다는 사람도 있어서 사용했습니다.
+    자식 클래스들을 float로 정렬했을 때,
+    부모 클래스가 height를 모를 때 clear 해주기 위해 사용했습니다.
+    */
 }
