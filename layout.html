@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+    <link rel="stylesheet" type="text/css" href="layout.css">
+    <title>layout</title>
+</head>
+<body>
+    
+    <div class="center">
+        <!--가운데 정렬을 위해 div를 한 번 감쌌습니다.-->
+        <div class="content clearfix">
+            <img src="images/img_01.jpg" alt="2016년 굿럭 병신년!">
+
+            <div class="lotto clearfix">
+                <img src="images/img_02.jpg" alt="이벤트 페이지 방문시 1일 1회 복권 1장을 드립니다.">
+                
+                <div class="lotto-child">
+                    <img src="images/ico_01.gif" alt="첫 번째 숫자">
+                    <img src="images/ico_02.gif" alt="두 번째 숫자">
+                    <img src="images/ico_03.gif" alt="세 번째 숫자">
+                    <img src="images/ico_04.gif" alt="네 번째 숫자">
+                    <img src="images/ico_05.gif" alt="다섯 번째 숫자">
+                    <img src="images/ico_01.gif" alt="여섯 번째 숫자">
+                </div>   
+                
+                 <div class="lotto-child">
+                     <p>10</p>
+                     <p>20</p>
+                     <p>30</p>
+                     <p>40</p>
+                     <p>43</p>
+                     <p>2</p>
+                 </div> 
+                
+                <p id="lotto-count">32</p>     
+                
+                <input type="submit" alt="휴면회원 복권받기" value="" id="btn-dormant">     
+                <input type="submit" alt="신규회원 복권받기" value="" id="btn-new">   
+                
+                <div class="lotto-input clearfix">
+                    <input type="text" class="first lotto-input-child" maxlength="2">
+                    <input type="text" class="second lotto-input-child" maxlength="2">
+                    <input type="text" class="third lotto-input-child" maxlength="2">
+                    <input type="text" class="fourth lotto-input-child" maxlength="2">
+                    <input type="text" class="fifth lotto-input-child" maxlength="2">
+                    <input type="text" class="sixth lotto-input-child" maxlength="2">
+                </div>                
+                
+                <input type="submit" alt="복권 확인" value="" id="btn-check">
+                <input type="submit" alt="신규회원 복권받기" value="" id="btn-check2">
+            </div>
+
+            <div class="upgrade">
+                <img src="images/img_03.jpg" alt="강화하고 푸짐한 상품을 받아보자!">
+                
+                <p id="upgrade-num">+ 10</p>
+                
+                <input type="submit" alt="특별 양피지로 강화하기" value="" id="btn-special">
+                <input type="submit" alt="축복받은 양피지로 강화하기" value="" id="btn-bless">
+                <input type="submit" alt="일반 양피지로 강화하기" value="" id="btn-basic">
+                
+                <div class="possession">
+                    <p class="p-bless">00</p>
+                    <p class="p-basic">000</p>
+                    <p>0000</p>
+                </div>      
+                
+                <input type="text">
+                
+                <p>※ 코인은 모든 게임에서 구매완료 시 사용한 마일리지 만큼 자동으로 지급됩니다!!</p>
+                
+                <div class="buy">
+                    <input type="submit" alt="복권 확인" value="" class="btn-buy">
+                    <input type="submit" alt="복권 확인" value="" class="btn-buy">
+                    <input type="submit" alt="복권 확인" value="" class="btn-buy">
+                </div>
+            </div>
+
+            <div class="ranking">
+                <img src="images/img_04.jpg" alt="강화 순위">
+                
+                <ul class="ul-ranking clearfix">
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+21</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+20</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+15</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+14</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+13</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+12</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+11</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+10</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+9</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+9</li>
+                    <li class="user-id user">abcdefg***</li>
+                </ul>
+                
+                <ul class="ul-ranking today clearfix">
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+21</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+20</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+15</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+14</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+13</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+12</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+11</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+10</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+9</li>
+                    <li class="user-id user">abcdefg***</li>
+                    <li class="user-ranking user"></li>
+                    <li class="user-upgrade user">+9</li>
+                    <li class="user-id user">abcdefg***</li>
+                </ul>
+            </div>            
+
+            <div class="product">
+                <img src="images/img_05.jpg" alt="순위별 당첨 상품">
+                
+                <p>마일리지 받기 대상자</p>
+                
+                <input type="submit" alt="마일리지 받기" value="" id="btn-mileage">   
+                
+                <input type="submit" alt="참가상 받기" value="" id="btn-participation">   
+            </div>            
+
+            <img src="images/img_06.jpg" alt="알아두세요!">
+        </div>
+        
+        <img src="images/bg_left.jpg" alt="왼쪽 여백" id="bg-left">   
+        
+        <img src="images/bg_right.jpg" alt="오른쪽 여백" id="bg-right">
+    </div>
+    
+</body>
+</html>
