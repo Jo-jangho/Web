@@ -2,21 +2,22 @@
     box-sizing: border-box;
 }
 
-html, 
-body, 
+html,
+body,
 p {
     margin: 0;
     padding: 0;
 }
 
-img {
-    display: block;
-}
-
-.center {
+body {
     width: 1060px;
     margin: 0 auto;
     position: relative;
+    text-align: center;
+}
+
+img {
+    display: block;
 }
 
 #bg-left {
@@ -31,34 +32,29 @@ img {
     left: 1060px;
 }
 
-.content {
-    text-align: center;
-}
-
-.lotto,
-.upgrade,
-.ranking,
-.product {
+.lotto-layout,
+.upgrade-layout,
+.ranking-layout,
+.product-layout {
     position: relative;
 }
 
-.lotto-child {
+.lotto-num {
     position: absolute;
     left: 40px;
     top: 127px;
     padding-left: 8px;
 }
 
-.lotto-child>img {
+.lotto-num>img {
     float: left;
     margin-left: 20px;
 }
 
-.lotto-child>p {
+.lotto-num>p {
     float: left;
     width: 66px;
     height: 66px;
-    text-align: center;
     line-height: 66px;
     margin-left: 20px;
     font-family: tahoma;
@@ -137,7 +133,6 @@ img {
     left: 85px;
     top: 206px;
     margin: 0;
-    
     font-family: tahoma;
     font-size: 44px;
     color: #fff;
@@ -171,7 +166,7 @@ img {
     background-image: url(images/btn_07.gif);
 }
 
-.possession {
+.possess {
     position: absolute;
     left: 700px;
     top: 195px;
@@ -182,30 +177,28 @@ img {
     color: #343434;
 }
 
-.p-bless {
+.possess-bless {
     margin-bottom: 60px;
 }
 
-.p-basic {
+.possess-basic {
     margin-bottom: 50px;
 }
 
-.possession+input {
-    font-family: tahoma;
-    font-size: 45px;
-    color: #343434;
-    text-align: center;
-    
+.input-coin {
     position: absolute;
     left: 221px;
     top: 600px;
-    
     width: 240px;
     background-color: #ebeae1;
-    border: 0 none;
+    border: 0 none;    
+    font-family: tahoma;
+    font-size: 45px;
+    color: #343434;
+    text-align: inherit;
 }
 
-.possession+input+p {
+.input-coin+p {
     font-family: tahoma;
     font-size: 12px;
     position: absolute;
@@ -220,7 +213,6 @@ img {
 }
 
 .btn-buy {
-    display: block;
     width: 91px;
     height: 29px;
     float: left;
@@ -236,12 +228,11 @@ img {
     width: 463px;
     margin: 0;
     padding: 0;
-    
     counter-reset: ranking;
-    
     font-family: 돋움;
     font-size: 12px;
     color: #492103;
+    line-height: 28px;
 }
 
 .today {
@@ -249,45 +240,40 @@ img {
     left: 560px;
 }
 
-.user {
+.user-ranking:before {
+    width: 120px;
     float: left;
     height: 28px;
-    line-height: 28px;
-}
-
-.user-ranking {
-    width: 120px;
-}
-
-.user-ranking:before {
     counter-increment: ranking;
     content: counter(ranking);
 }
 
 .user-upgrade {
     width: 135px;
+    float: left;
+    height: 28px;
 }
 
 .user-id {
     width: 208px;
+    float: left;
+    height: 28px;
 }
 
-.product>p {
+.product-layout>p {
+    position: absolute;
+    left: 293px;
+    top: 524px;
     font-family: 돋움;
     font-size: 12px;
     color: #ff1d1d;
     font-weight: bold;
-    
-    position: absolute;
-    left: 293px;
-    top: 524px;
 }
 
 #btn-mileage {
     width: 170px;
     height: 41px;
     background-image: url(images/btn_08.gif);
-    
     position: absolute;
     left: 271px;
     top: 545px;
@@ -297,14 +283,7 @@ img {
     width: 170px;
     height: 41px;
     background-image: url(images/btn_10.gif);
-    
     position: absolute;
     left: 806px;
     top: 545px;
-}
-
-.clearfix:after {
-    content: "";
-    display: block;
-    clear: both;
 }

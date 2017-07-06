@@ -1,0 +1,720 @@
+/*
+ * @title		���� 覃���
+ * @author		�レ��讌�
+ * @date		2012.01.25
+ * @update		覃��� 螳��ｸ : 2015.01.15([F/E]蟾���讌�)
+ * @description
+ */
+
+::-moz-selection {
+    background-color: transparent
+}
+
+::selection {
+    background-color: transparent
+}
+
+.portal_sp {
+    background-image: url(//img2.itemmania.com/images/portal/main/170628_portal_sp.jpg)
+}
+
+.div2 {
+    position: relative;
+    float: left;
+    width: 260px;
+    margin-top: 10px;
+    .z-index: 40
+}
+
+.div2 .menu {
+    position: relative
+}
+
+.div2 .itemmania,
+.div2 .itemmania_on,
+.div2 .gamemania,
+.div2 .gamemania_on {
+    height: 310px
+}
+
+.div2 .market,
+.div2 .market_on,
+.div2 .charge,
+.div2 .charge_on {
+    height: 235px
+}
+
+.div2 .itemmania {
+    background-position: -2px -2px
+}
+
+.div2 .itemmania_on {
+    background-position: -2px -438px
+}
+
+.div2 .gamemania {
+    margin-top: 5px;
+    background-position: -264px -2px
+}
+
+.div2 .gamemania_on {
+    margin-top: 5px;
+    background-position: -264px -438px
+}
+
+.div2 .market {
+    background-position: -526px -2px
+}
+
+.div2 .market_on {
+    background-position: -526px -438px
+}
+
+.div2 .charge {
+    margin: 5px 0;
+    background-position: -788px -2px
+}
+
+.div2 .charge_on {
+    margin: 5px 0;
+    background-position: -788px -438px
+}
+
+.div2 .story,
+.div2 .story_on {
+    height: 145px
+}
+
+.div2 .story {
+    background-position: -1050px -160px
+}
+
+.div2 .story_on {
+    background-position: -1050px -438px
+}
+
+.div2 .btn_direct {
+    position: relative;
+    float: right;
+    width: 95px;
+    height: 27px;
+    margin: 16px 11px 0 0;
+    background-position: -526px -239px
+}
+
+.div2 .btn_direct_charge {
+    background-position: -623px -239px
+}
+
+.div2 .goods_area {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    margin-top: 57px
+}
+
+.div2 .goods_area .arrow {
+    float: left;
+    cursor: pointer
+}
+
+.div2 .goods_area .left_arrow {
+    margin: 40px 5px 0 28px
+}
+
+.div2 .goods_area .right_arrow {
+    margin: 40px 0 0 5px
+}
+
+.div2 .goods_area .goods_img {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 170px;
+    height: 90px
+}
+
+.div2 .goods_area .goods_img img {
+    position: absolute;
+    left: 170px
+}
+
+.div2 .goods_area .goods_img .show {
+    left: 0
+}
+
+.div2 .inner_tab {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    clear: both;
+    .width: 232px;
+    margin: 5px 0 0 15px;
+    _margin-left: 7px;
+    border-bottom: 1px solid #D5D5D5;
+    border-right: 1px solid #D5D5D5
+}
+
+.div2 .inner_tab li {
+    float: left;
+    width: 76px;
+    height: 27px;
+    border-top: 1px solid #D5D5D5;
+    border-left: 1px solid #D5D5D5;
+    background-color: #FFF;
+    line-height: 27px;
+    color: #7F7F7F;
+    font-size: 11px;
+    text-align: center;
+    cursor: pointer
+}
+
+.div2 .market_tab li {
+    width: 74px
+}
+
+.div2 .inner_tab .selected {
+    color: #FFF;
+    font-weight: bold;
+    border-color: transparent
+}
+
+.div2 .market_tab .selected {
+    background-color: #E9683A
+}
+
+.div2 .charge_tab .selected {
+    background-color: #18869F
+}
+
+.div2 .content_icon {
+    position: absolute;
+    z-index: 40
+}
+
+.div2 .icon_itemmania {
+    top: 140px;
+    left: 100%;
+    margin-left: -2px
+}
+
+.div2 .icon_gamemania {
+    top: 140px;
+    left: 100%;
+    margin-left: -2px
+}
+
+.div2 .icon_market {
+    top: 100px;
+    margin-left: -15px;
+    .margin-left: -275px
+}
+
+.div2 .icon_charge {
+    top: 100px;
+    margin-left: -15px;
+    .margin-left: -275px
+}
+
+.div2 .icon_story {
+    top: 55px;
+    margin-left: -15px
+}
+
+#main_view {
+    position: relative;
+    float: left;
+    width: 450px;
+    height: 625px;
+    margin: 10px 5px 0;
+    z-index: 30
+}
+
+#main_view .main_detail {
+    position: absolute;
+    visibility: hidden;
+    width: 450px;
+    height: 625px;
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
+    -ms-filter: alpha(opacity=0);
+    -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    filter: alpha(opacity=0);
+    opacity: 0
+}
+
+#main_view .main_detail .goods_img {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 360px;
+    height: 106px;
+    margin: 0 9px 0 15px;
+    text-align: center
+}
+
+#main_view .main_detail .goods_img img {
+    position: absolute;
+    left: 378px
+}
+
+#main_view .main_detail .goods_img .show1 {
+    left: 0
+}
+
+#main_view .main_detail .goods_img .show2 {
+    left: 126px
+}
+
+#main_view .main_detail .goods_img .show3 {
+    left: 252px
+}
+
+#main_view .main_detail .goods_img_large {
+    width: 390px;
+    height: 167px;
+    margin: 0 6px 0 8px
+}
+
+#main_view .main_detail .goods_img_large img {
+    left: 390px
+}
+
+#main_view .main_detail .goods_img_large .show1 {
+    left: 0
+}
+
+#main_view .main_detail .goods_img_large .show2 {
+    left: 130px
+}
+
+#main_view .main_detail .goods_img_large .show3 {
+    left: 260px
+}
+
+#main_view .main_detail .blank_area {
+    float: left;
+    width: 100%;
+    height: 162px
+}
+
+#main_view .main_detail .blank_area2 {
+    float: left;
+    width: 100%;
+    height: 356px
+}
+
+#main_view .main_detail .arrow {
+    float: left;
+    margin-top: 38px;
+    cursor: pointer
+}
+
+#main_view .main_detail .arrow2 {
+    margin-top: 70px
+}
+
+#main_view .main_detail .left_arrow {
+    margin-left: 20px
+}
+
+#main_view .main_detail .left_arrow2 {
+    margin-left: 10px
+}
+
+#main_view .gamemania {
+    background: url(//img2.itemmania.com/images/portal/main/20161205_img_gamemania_detail.jpg) no-repeat
+}
+
+#main_view .market {
+    background: url(//img2.itemmania.com/images/portal/main/20170615_img_moa_market_detail.jpg) no-repeat
+}
+
+#main_view .charge {
+    background: url(//img2.itemmania.com/images/portal/main/img_moa_charge_detail.jpg) no-repeat
+}
+
+#main_view .selected_view {
+    visibility: visible;
+    -khtml-opacity: 1;
+    -moz-opacity: 1;
+    -ms-filter: alpha(opacity=100);
+    -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: alpha(opacity=100);
+    opacity: 1
+}
+
+.middle_banner {
+    margin: 10px 0
+}
+
+.middle {
+    overflow: hidden;
+    clear: both;
+    _width: 930px;
+    _height: 200px;
+    margin-bottom: 10px;
+    padding: 26px 24px;
+    background-color: #FFF;
+    border: 1px solid #D2D2D2
+}
+
+.middle .article {
+    float: left;
+    width: 235px
+}
+
+.middle .article2 {
+    width: 396px;
+    margin: 0 32px
+}
+
+.middle .article .img_wrap_title {
+    height: 16px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    line-height: 16px;
+    border-bottom: 1px dashed #9A9A9A
+}
+
+.middle .article .img_wrap_title div {
+    float: left;
+    height: 16px
+}
+
+.middle .article .img_wrap_title .center {
+    width: 86px;
+    background-position: -526px -268px
+}
+
+.middle .article .img_wrap_title .giftmall {
+    width: 59px;
+    background-position: -623px -268px
+}
+
+.middle .article .img_wrap_title .ssada {
+    width: 88px;
+    background-position: -691px -268px
+}
+
+.middle .article .img_wrap_title .more {
+    float: right;
+    width: 19px;
+    height: 16px;
+    background-position: -746px -239px
+}
+
+.middle .article .notice {
+    float: left
+}
+
+.middle .article .notice_icon {
+    float: left;
+    width: 36px;
+    height: 19px;
+    border: 1px solid #C8C8C8;
+    color: #6C6C6C;
+    text-align: center;
+    line-height: 19px
+}
+
+.middle .article .notice dl {
+    padding-left: 7px
+}
+
+.middle .article .notice dd {
+    overflow: hidden;
+    width: 190px;
+    height: 21px;
+    line-height: 21px;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.middle .article .notice .g_left dd a {
+    position: relative;
+    display: inline-block;
+    height: 18px;
+    color: #6C6C6C;
+    white-space: nowrap;
+    text-decoration: none
+}
+
+.middle .article .notice .g_left dd a:after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    border-bottom: 1px solid #6C6C6C;
+    transition: width 0.2s, left 0.2s;
+    -webkit-transition: width 0.2s, left 0.2s;
+    content: ''
+}
+
+.middle .article .notice .g_left dd a:hover:after {
+    width: 100%;
+    left: 0
+}
+
+.middle .article .notice img {
+    vertical-align: baseline
+}
+
+.middle .article .tel {
+    float: left;
+    width: 235px;
+    height: 95px;
+    margin-top: 19px;
+    background-position: -979px -314px
+}
+
+.middle .article .culture,
+.middle .article .happy {
+    float: left;
+    width: 194px;
+    height: 156px
+}
+
+.middle .article .culture {
+    background-position: -1244px -2px
+}
+
+.middle .article .happy {
+    margin-left: 8px;
+    background-position: -1050px -2px
+}
+
+.middle .article .goods_wrap {
+    width: 235px;
+    height: 154px;
+    border: 1px solid #D6D6D6;
+    background-color: #F1F1F1
+}
+
+.middle .article .goods_wrap .arrow {
+    float: left;
+    width: 13px;
+    height: 21px;
+    cursor: pointer
+}
+
+.middle .article .goods_wrap .left_arrow {
+    margin: 50px 14px 0 11px;
+    _margin: 50px 7px 0 9px;
+    background-position: -984px -254px
+}
+
+.middle .article .goods_wrap .right_arrow {
+    margin: 50px 0 0 13px;
+    _margin-left: 6px;
+    background-position: -999px -254px
+}
+
+.middle .article .goods_wrap .goods_img {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 160px;
+    height: 95px;
+    margin-top: 5px
+}
+
+.middle .article .goods_wrap .goods_img img {
+    position: absolute;
+    left: 160px
+}
+
+.middle .article .goods_wrap .goods_img .show {
+    left: 0
+}
+
+.middle .article .goods_wrap .descript {
+    overflow: hidden;
+    clear: both;
+    padding: 5px 0 0 16px
+}
+
+.middle .article .goods_wrap .ssada_icon {
+    float: left;
+    width: 55px;
+    height: 41px;
+    margin-right: 15px;
+    background-position: -1312px -160px
+}
+
+.middle .article .goods_wrap #goods_name {
+    overflow: hidden;
+    float: left;
+    width: 140px;
+    color: #7B7B7B;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.middle .article .goods_wrap .price {
+    float: left;
+    margin-top: 5px;
+    _margin-top: 0;
+    color: #7B7B7B
+}
+
+.middle .article .goods_wrap #goods_price {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: tahoma;
+    color: #515151
+}
+
+.bottom_banner {
+    float: left;
+    width: 323px;
+    height: 122px
+}
+
+.bottom_free {
+    background-position: -2px -314px
+}
+
+.bottom_game {
+    width: 324px;
+    margin: 0 5px;
+    background-position: -653px -314px
+}
+
+.bottom_point {
+    background-position: -328px -314px
+}
+
+.bottom_gift {
+    margin-top: 5px;
+    background-position: -2px -750px
+}
+
+.bottom_play {
+    width: 324px;
+    margin: 5px 5px 0;
+    background-position: -326px -750px
+}
+
+.bottom_toon {
+    margin-top: 5px;
+    background-position: -652px -750px
+}
+
+.bottom_phone {
+    width: 324px;
+    margin: 5px 5px 0;
+    background-position: -976px -750px
+}
+
+.bottom_navi {
+    float: left;
+    width: 140px;
+    margin: 10px 0 5px;
+    background-color: #FFF
+}
+
+.bottom_navi .navi_title {
+    height: 35px;
+    background-color: #6CA2CF;
+    border-right: 1px solid #FFF
+}
+
+.bottom_navi .navi_title div {
+    float: left;
+    height: 13px;
+    margin: 10px 0 0 15px;
+    _margin-left: 7px
+}
+
+.bottom_navi .itemmania {
+    width: 73px;
+    background-position: -767px -239px
+}
+
+.bottom_navi .gamemania {
+    width: 62px;
+    background-position: -842px -239px
+}
+
+.bottom_navi .market {
+    width: 23px;
+    background-position: -906px -239px
+}
+
+.bottom_navi .charge {
+    width: 49px;
+    background-position: -956px -239px
+}
+
+.bottom_navi .event {
+    width: 36px;
+    background-position: -1007px -239px
+}
+
+.bottom_navi .story {
+    width: 54px;
+    background-position: -767px -254px
+}
+
+.bottom_navi .center {
+    width: 73px;
+    background-position: -823px -254px
+}
+
+.bottom_navi .navi_title .last_bg {
+    float: right;
+    width: 29px;
+    height: 35px;
+    margin: 0;
+    background-position: -1014px -254px
+}
+
+.bottom_navi .last_title {
+    border-right: 0
+}
+
+.bottom_navi .sub_menu {
+    position: relative;
+    height: 185px;
+    padding-top: 10px;
+    line-height: 20px;
+    border-right: 1px solid #B4D9F3;
+    border-bottom: 1px solid #B4D9F3;
+    font-size: 11px
+}
+
+.bottom_navi .first_menu {
+    border-left: 1px solid #B4D9F3
+}
+
+.bottom_navi .sub_menu a {
+    position: relative;
+    display: inline-block;
+    height: 17px;
+    margin-left: 15px;
+    color: #666;
+    white-space: nowrap;
+    text-decoration: none
+}
+
+.bottom_navi .sub_menu a:after {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    border-bottom: 1px solid #6CA2CF;
+    transition: width 0.2s, left 0.2s;
+    -webkit-transition: width 0.2s, left 0.2s;
+    content: ''
+}
+
+.bottom_navi .sub_menu a:hover:after {
+    width: 100%;
+    left: 0
+}
+
+.bottom_navi .sub_menu .sub_menu2 {
+    color: #999
+}
