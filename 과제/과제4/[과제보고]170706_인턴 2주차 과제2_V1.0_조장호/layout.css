@@ -14,22 +14,73 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: center;
+    width: 1060px;
 }
 
 img {
     display: block;
 }
 
+[type="button"] {
+    border: 0 none;
+}
+
+[type="submit"] {
+    border: 0 none;
+}
+
 #bg-left {
+    width: 750px;
+    height: 3500px;
+    background-image: url(images/bg_left.jpg);
     position: absolute;
     top: 0px;
     left: -750px;
 }
 
 #bg-right {
+    width: 750px;
+    height: 3500px;
+    background-image: url(images/bg_right.jpg);
     position: absolute;
     top: 0px;
     left: 1060px;
+}
+
+.back-img1 {
+    width: 1060px;
+    height: 468px;
+    background-image: url(images/img_01.jpg);
+}
+
+.lotto-layout {
+    width: 1060px;
+    height: 721px;
+    background-image: url(images/img_02.jpg);
+}
+
+.upgrade-layout {
+    width: 1060px;
+    height: 726px;
+    background-image: url(images/img_03.jpg);
+}
+
+.ranking-layout {
+    width: 1060px;
+    height: 468px;
+    background-image: url(images/img_04.jpg);
+}
+
+.product-layout {
+    width: 1060px;
+    height: 722px;
+    background-image: url(images/img_05.jpg);
+}
+
+.back-img6 {
+    width: 1060px;
+    height: 395px;
+    background-image: url(images/img_06.jpg);
 }
 
 .lotto-layout,
@@ -46,12 +97,12 @@ img {
     padding-left: 8px;
 }
 
-.lotto-num>img {
+.lotto-num img {
     float: left;
     margin-left: 20px;
 }
 
-.lotto-num>p {
+.lotto-num span {
     float: left;
     width: 66px;
     height: 66px;
@@ -228,7 +279,6 @@ img {
     width: 463px;
     margin: 0;
     padding: 0;
-    counter-reset: ranking;
     font-family: 돋움;
     font-size: 12px;
     color: #492103;
@@ -240,12 +290,10 @@ img {
     left: 560px;
 }
 
-.user-ranking:before {
+.user-ranking {
     width: 120px;
     float: left;
     height: 28px;
-    counter-increment: ranking;
-    content: counter(ranking);
 }
 
 .user-upgrade {
@@ -260,7 +308,7 @@ img {
     height: 28px;
 }
 
-.product-layout>p {
+.product-layout p {
     position: absolute;
     left: 293px;
     top: 524px;

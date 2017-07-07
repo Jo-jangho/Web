@@ -9,10 +9,6 @@ p {
     padding: 0;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     margin: 0 auto;
     text-align: center;
@@ -20,8 +16,8 @@ body {
     height: 100%;
 }
 
-div,
 p,
+div,
 span {
     font-size: 12px;
 }
@@ -31,39 +27,45 @@ span {
     font-weight: bold;
 }
 
-.title {
-    border-bottom: 2px solid blue;
+.main-title {
+    border-bottom: 2px solid #4281d4;
     padding-top: 20px;
     padding-bottom: 5px;
-    margin-bottom: 10px;
     text-align: right;
     position: relative;
 }
 
-.title img {
+.main-title img {
     position: absolute;
     left: 0px;
-    top: 10px;
+    top: 15px;
 }
 
-.title p {
+.main-title p {
     display: inline-block;
-    font-family: 돋움;
     font-size: 12px;
     margin: 0;
     margin-top: 8px;
     float: right;
 }
 
+.shadow {
+    width: 760px;
+    height: 10px;
+    border-top: 2px solid #d2d5d9;
+}
+
 .user_info {
     border: 2px solid #ddd;
     position: relative;
+    background-color: #f5f5f5;
 }
 
 .user_info>div:first-child {
     border-bottom: 1px solid #ddd;
     height: 106px;
     float: left;
+    background-color: #fff;
 }
 
 .user {
@@ -72,7 +74,7 @@ span {
     padding-top: 20px;
     padding-bottom: 11px;
     display: inline-block;
-    width: 250px;
+    width: 248px;
     height: inherit;
     border-right: 1px solid #ddd;
     text-align: left;
@@ -85,7 +87,7 @@ span {
 .user p {
     float: left;
     padding-left: 21px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 br+strong {
@@ -96,8 +98,7 @@ br+strong {
 .point_att {
     float: left;
     text-align: center;
-    margin-top: 21px;
-    padding-top: 10px;
+    padding-top: 30px;
     font-size: 15px;
     color: red;
     font-weight: bold;
@@ -111,12 +112,12 @@ br+strong {
 
 .all_point {
     width: 170px;
-    border-right: 1px solid #ddd;
+    height: 106px;
+    border-left: 1px solid #ebebeb;
 }
 
 .threeM_point {
     width: 168px;
-    border-right: 1px solid #ddd;
 }
 
 .charge {
@@ -127,10 +128,11 @@ br+strong {
     clear: both;
     float: left;
     padding-top: 9px;
-    padding-bottom: 10px;
-    width: 250px;
-    height: 93px;
+    padding-bottom: 20px;
+    width: 248px;
+    height: 100px;
     border-right: 1px solid #ddd;
+    letter-spacing: -0.1em;
 }
 
 .gift_credit img {
@@ -138,44 +140,52 @@ br+strong {
     margin-left: 36px;
 }
 
-.coupon-layout {
+.s-coupon {
     float: left;
-    letter-spacing: -0.1em;
-    line-height: 13px;
-    height: 93px;
-}
-
-.s_coupon {
     width: 120px;
-    margin-top: 19px;
-    border-right: 1px solid #ddd;
+    height: 100px;
+    padding-top: 19px;
+    padding-left: 7px;
+    margin-right: 10px;
+    letter-spacing: -0.1em;
+    border-left: 1px solid #ebebeb;
 }
 
-.s_coupon img {
-    margin-bottom: 5px;
+.s-coupon img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 8px;
 }
 
 .pb_coupon {
-    width: 125px;
     float: left;
-    padding-top: 8px;
-    letter-spacing: -0.1em;
+    width: 125px;
+    margin-top: 8px;
 }
 
 .pb_coupon img {
     display: block;
     margin: 0 auto;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .a_coupon {
+    float: left;
     width: 125px;
-    margin-top: 17px;
-    border-left: 1px solid #ddd;
+    margin-top: 12px;
 }
 
 .a_coupon img {
-    margin-bottom: 5px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+.line {
+    height: 50px;
+    margin-top: 21px;
+    float: left;
+    border-right: 1px solid #ddd;
 }
 
 .title2 {
@@ -196,6 +206,20 @@ br+strong {
     border-top: 2px solid #C6C6C6;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
+}
+
+.tr_start {
+    clear: both;
+    float: left;
+    width: 140px;
+    font-weight: bold;
+    border-right: 1px solid #ddd;
+    background-color: #f5f5f5;
+}
+
+.tr_start span {
+    text-decoration: underline;
+    color: blue;
 }
 
 .tr {
@@ -245,6 +269,7 @@ br+strong {
 .member_grade {
     height: 182px;
     vertical-align: middle;
+    font-weight: normal;
 }
 
 .member_grade img {
@@ -255,19 +280,6 @@ br+strong {
 
 .member_grade div {
     margin: 48px auto;
-}
-
-.tr_start {
-    clear: both;
-    float: left;
-    width: 140px;
-    font-weight: bold;
-    border-right: 1px solid #ddd;
-}
-
-.tr_start span {
-    text-decoration: underline;
-    color: blue;
 }
 
 .point_value {
@@ -283,7 +295,7 @@ br+strong {
 .point_value2 {
     float: left;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-top: 10px;
 }
 
@@ -324,6 +336,7 @@ br+strong {
 .coupon2 {
     float: left;
     width: 103px;
+    height: 116px;
     padding-left: 9px;
     padding-top: 13px;
 }
@@ -336,6 +349,7 @@ br+strong {
 .coupon3 {
     float: left;
     width: 103px;
+    height: 94px;
     padding-left: 7px;
     padding-top: 16px;
 }
@@ -350,6 +364,7 @@ br+strong {
 }
 
 .empty2 {
+    padding: 0;
     line-height: 94px;
 }
 
@@ -374,6 +389,7 @@ br+strong {
     border: 1px solid #ddd;
     border-top: 1px solid #4d4a4a;
     text-align: left;
+    letter-spacing: 0;
 }
 
 .manage_point div {
@@ -401,14 +417,12 @@ br+strong {
     border-right: 0px none;
 }
 
+.back-color {
+    background-color: #fafafa;
+}
+
 .clearfix:after {
     content: "";
     display: block;
     clear: both;
-    /* 
-    찾아봤더니 CSS 핵이라는 사람도 있고,
-    이렇게 쓰는 게 제일 좋다는 사람도 있어서 사용했습니다.
-    자식 클래스들을 float로 정렬했을 때,
-    부모 클래스가 height를 모를 때 clear 해주기 위해 사용했습니다.
-    */
 }
