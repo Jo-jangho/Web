@@ -48,7 +48,7 @@ body {
     margin-left: 7px;
 }
 
-.serch>img:first-child {
+.serch img:first-child {
     float: right;
     margin-right: -3px;
     margin-top: -3px;
@@ -84,38 +84,35 @@ body {
     scrollbar-darkshadow-color: #e66303;
 }
 
-.game_list>p {
+.game_list div {
     float: left;
     font-family: 돋움;
     font-size: 11px;
     color: #fff;
     width: 153px;
-    margin-top: 0;
-    margin-bottom: 0;
     padding-left: 5px;
     padding-bottom: 10px;
 }
 
-p.yellow {
+div.yellow {
     color: #fcf601;
     font-weight: bold;
 }
 
-p.top {
+.top {
     padding-top: 19px;
 }
 
-p.first {
+.first {
     margin-left: 30px;
     background-color: #ff821f;
 }
 
-.banner>img {
+.banner img {
     margin-top: 10px;
     float: left;
 }
 
-/* id부여 외에 다른 방법을 찾지 못했습니다. */
 #banner2,
 #banner4 {
     margin-left: 10px;
@@ -143,14 +140,14 @@ p.first {
     margin-left: 20px;
 }
 
-.game_title>img+img {
+.game_title img+img {
     border: 1px solid #dddddd;
     float: left;
     margin-top: 16px;
     margin-left: 20px;
 }
 
-.game_title>ul {
+.game_title ul {
     float: left;
     padding: 0;
     list-style: none;
@@ -158,14 +155,14 @@ p.first {
     margin-left: 20px;
 }
 
-.game_title>ul>li {
+.game_title ul li {
     font-family: 돋움;
     font-size: 12px;
     color: #545454;
     margin-bottom: 11px;
 }
 
-.game_title>ul>li>img {
+.game_title ul li img {
     margin-right: 9px;
 }
 
@@ -177,13 +174,12 @@ p.first {
     text-align: left;
 }
 
-.footer>img {
+.footer img {
     margin-left: 10px;
     margin-top: 25px;
-    display: inline-block;
 }
 
-.footer>div>p {
+.footer div p {
     font-family: 돋움;
     font-size: 11px;
     color: #afafaf;
@@ -191,7 +187,7 @@ p.first {
     margin-bottom: 6px;
 }
 
-.footer>div {
+.footer div {
     margin-left: 25px;
     display: inline-block;
 }

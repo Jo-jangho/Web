@@ -13,7 +13,6 @@ body {
     margin: 0 auto;
     text-align: center;
     width: 760px;
-    height: 100%;
 }
 
 p,
@@ -42,10 +41,6 @@ span {
 }
 
 .main-title p {
-    display: inline-block;
-    font-size: 12px;
-    margin: 0;
-    margin-top: 8px;
     float: right;
 }
 
@@ -414,7 +409,7 @@ br+strong {
 }
 
 .tr_end {
-    border-right: 0px none;
+    border-right: none;
 }
 
 .back-color {

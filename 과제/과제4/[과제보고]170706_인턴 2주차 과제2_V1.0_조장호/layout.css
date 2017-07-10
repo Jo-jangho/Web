@@ -14,14 +14,13 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: center;
-    width: 1060px;
 }
 
 img {
     display: block;
 }
 
-[type="button"] {
+button {
     border: 0 none;
 }
 
@@ -102,7 +101,7 @@ img {
     margin-left: 20px;
 }
 
-.lotto-num span {
+.lotto-num div {
     float: left;
     width: 66px;
     height: 66px;

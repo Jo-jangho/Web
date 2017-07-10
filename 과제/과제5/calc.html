@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3주차 첫 번째</title>
+    <meta charset="utf-8" >
+    <style>
+        html, body, form, table, tr, td, input {margin: 0; padding: 0;}
+        table {width: 200px;;, height: 300px; border: 1px solid black; text-align: center;}
+        td {width: 30px; height: 100%;}
+        button {width: 100%; height: 100%; vertical-align: middle;}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="5">
+                <!--<textarea name="calcText" id="calcText" cols="20" rows="1"></textarea>-->
+                <form name="calcForm">
+                    <input type="text" name="calcText" id="calcText">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc('back')">←</button></td>
+            <td><button></button></td>
+            <td><button onclick="calc('clear')">C</button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc('7')">7</button></td>
+            <td><button onclick="calc('8')">8</button></td>
+            <td><button onclick="calc('9')">9</button></td>
+            <td><button onclick="calc('div')">/</button></td>
+            <td><button onclick="calc('remain')">%</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc('4')">4</button></td>
+            <td><button onclick="calc('5')">5</button></td>
+            <td><button onclick="calc('6')">6</button></td>
+            <td><button onclick="calc('multi')">*</button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc('1')">1</button></td>
+            <td><button onclick="calc('2')">2</button></td>
+            <td><button onclick="calc('3')">3</button></td>
+            <td><button onclick="calc('sub')">-</button></td>
+            <td rowspan="2"><button onclick="calc('equal')">=</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="calc('0')">0</button></td>
+            <td><button onclick="calc('.')">.</button></td>
+            <td><button onclick="calc('plus')">+</button>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        var firstNum = null;
+        var secondNum = null;
+        var symbol = null;
+        var number = document.getElementById('calcText');
+        function calc(num)
+        {
+            switch(num)
+            {
+                case "plus":
+                    plus();
+                    break;
+                case "sub":
+                    sub();
+                    break;
+                case "multi":
+                    multi();
+                    break;
+                case "div":
+                    div();
+                    break;
+                case "remain":
+                    remain();
+                    break;
+                case "back":
+                    back();
+                    break;
+                case "equal":
+                    equal();
+                    break;
+                case "clear":
+                    clear();
+                    break;
+                default :
+                    number.value += num;
+                    break;
+            }
+        }
+        
+        function back()
+        {
+            if (number.value == "")
+            {
+                number.value = ""
+            }
+            else if (number.value.length == 1) 
+            {
+                number.value = ""
+            } 
+            else 
+            {
+                number.value = number.value.slice("", number.value.length -1)
+            }
+        }
+        
+        function equal()
+        {
+            calc(symbol);
+        }
+        
+        function clear()
+        {
+            number.value = null;
+            firstNum = null;
+            secondNum = null;
+        }
+        
+        function plus()
+        {
+            if(firstNum == null)
+            {
+                firstNum = number.value;
+                document.calcForm.calcText.value = "";
+                symbol = 'plus';
+            }
+            else
+            {
+                secondNum = number.value;
+                number.value = parseFloat(firstNum) + parseFloat(secondNum);
+                firstNum = null;
+                secondNum = null;
+            }
+        }
+        
+        function sub()
+        {
+            if(firstNum == null)
+            {
+                firstNum = number.value;
+                document.calcForm.calcText.value = "";
+                symbol = "sub";
+            }
+            else
+            {
+                secondNum = number.value;
+                document.number.value = parseFloat(firstNum) - parseFloat(secondNum);
+                firstNum = null;
+                secondNum = null;
+            }
+        }
+        
+        function multi()
+        {
+            if(firstNum == null)
+            {
+                firstNum = number.value;
+                number.value = "";
+                symbol = "multi";
+            }
+            else
+            {
+                secondNum = number.value;
+                number.value = parseFloat(firstNum) * parseFloat(secondNum);
+                firstNum = null;
+                secondNum = null;
+            }
+        }
+        
+        function div()
+        {
+            if(firstNum == null)
+            {
+                firstNum = number.value;
+                number.value = "";
+                symbol = "div";
+            }
+            else
+            {
+                secondNum = number.value;
+                number.value = parseFloat(firstNum) / parseFloat(secondNum);
+                firstNum = null;
+                secondNum = null;
+            }
+        }
+        
+        function remain()
+        {
+            if(firstNum == null)
+            {
+                firstNum = number.value;
+                document.calcForm.calcText.value = "";
+                symbol = "remain";
+            }
+            else
+            {
+                secondNum = number.value;
+                number.value = parseFloat(firstNum) % parseFloat(secondNum);
+                firstNum = null;
+                secondNum = null;
+            }
+        }
+    </script>
+</body>
+</html>
