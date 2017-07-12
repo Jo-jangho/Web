@@ -13,7 +13,6 @@ body {
     margin: 0 auto;
     text-align: center;
     width: 760px;
-    height: 100%;
 }
 
 p,
@@ -41,6 +40,13 @@ span {
     top: 15px;
 }
 
+<<<<<<< HEAD
+=======
+.main-title p {
+    float: right;
+}
+
+>>>>>>> 6b18179957891a3570db4ce5e9cf7902ab6c17c3
 .shadow {
     width: 760px;
     height: 10px;
@@ -380,7 +386,6 @@ br+strong {
     border: 1px solid #ddd;
     border-top: 1px solid #4d4a4a;
     text-align: left;
-    letter-spacing: 0;
 }
 
 .manage_point div {
@@ -405,7 +410,7 @@ br+strong {
 }
 
 .tr_end {
-    border-right: 0px none;
+    border-right: none;
 }
 
 .back-color {

@@ -6,18 +6,44 @@
     <title>2주차 2번째 과제</title>
 </head>
 <body>
-    <div id="bg-left"></div>
-    <div class="content">
-        <div class="back-img1"></div>
-        <div class="lotto-layout">
-            <div class="lotto-num">
-                <img src="images/ico_01.gif" alt="첫 번째 숫자">
-                <img src="images/ico_02.gif" alt="두 번째 숫자">
-                <img src="images/ico_03.gif" alt="세 번째 숫자">
-                <img src="images/ico_04.gif" alt="네 번째 숫자">
-                <img src="images/ico_05.gif" alt="다섯 번째 숫자">
-                <img src="images/ico_01.gif" alt="여섯 번째 숫자">
+    <div class="allWrapper">
+        <div id="bg-left"></div>
+        <div class="content">
+            <div class="back-img1"></div>
+            <div class="lotto-layout">
+                <div class="lotto-num">
+                    <img src="images/ico_01.gif" alt="첫 번째 숫자">
+                    <img src="images/ico_02.gif" alt="두 번째 숫자">
+                    <img src="images/ico_03.gif" alt="세 번째 숫자">
+                    <img src="images/ico_04.gif" alt="네 번째 숫자">
+                    <img src="images/ico_05.gif" alt="다섯 번째 숫자">
+                    <img src="images/ico_01.gif" alt="여섯 번째 숫자">
+                </div>
+                <div class="lotto-num">
+                    <div>10</div>
+                    <div>20</div>
+                    <div>30</div>
+                    <div>40</div>
+                    <div>43</div>
+                    <div>2</div>
+                </div> 
+                <span id="lotto-count">32</span>     
+                <input type="button" name="dormant" value="" id="btn-dormant">     
+                <input type="button" name="new" value="" id="btn-new">   
+                <div class="lotto-input">
+                    <input type="text" maxlength="2" name="first-number">
+                    <input type="text" maxlength="2" name="second-number">
+                    <input type="text" maxlength="2" name="third-number">
+                    <input type="text" maxlength="2" name="fourth-number">
+                    <input type="text" maxlength="2" name="fifth-number">
+                    <input type="text" maxlength="2" name="sixth-number">
+                </div>
+                <form action="">
+                    <input type="submit" name="lotto-check" value="" id="btn-check">               
+                </form>
+                <input type="button" name="newMember-getLotto" value="" id="btn-check2">
             </div>
+<<<<<<< HEAD
             <div class="lotto-num">
                 <span>10</span>
                 <span>20</span>
@@ -134,7 +160,102 @@
             <button type="button" name="button" id="btn-participation"></button>
         </div>
         <div class="back-img6"></div>
+=======
+            <div class="upgrade-layout">
+                <span id="upgrade-num">+ 10</span>
+                <input type="button" name="special-upgrade" value="" id="btn-special">
+                <input type="button" name="bless-upgrade" value="" id="btn-bless">
+                <input type="button" name="basic-upgrade" value="" id="btn-basic">
+                <div class="possess">
+                    <div class="possess-bless">00</div>
+                    <div class="possess-basic">000</div>
+                    <div>0000</div>
+                </div>      
+                <form action="">
+                    <input type="text" name="coin" class="input-coin">
+                    <p>※ 코인은 모든 게임에서 구매완료 시 사용한 마일리지 만큼 자동으로 지급됩니다!!</p>
+                    <div class="buy">
+                        <input type="submit" name="lotto-check" value="" class="btn-buy">
+                        <input type="submit" name="lotto-check" value="" class="btn-buy">
+                        <input type="submit" name="lotto-check" value="" class="btn-buy">
+                    </div>
+                </form>
+            </div>
+            <div class="ranking-layout">
+                <ul class="ul-ranking">
+                    <li class="user-ranking">1</li>
+                    <li class="user-upgrade">+21</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">2</li>
+                    <li class="user-upgrade">+20</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">3</li>
+                    <li class="user-upgrade">+15</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">4</li>
+                    <li class="user-upgrade">+14</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">5</li>
+                    <li class="user-upgrade">+13</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">6</li>
+                    <li class="user-upgrade">+12</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">7</li>
+                    <li class="user-upgrade">+11</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">8</li>
+                    <li class="user-upgrade">+10</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">9</li>
+                    <li class="user-upgrade">+9</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">10</li>
+                    <li class="user-upgrade">+9</li>
+                    <li class="user-id">abcdefg***</li>
+                </ul>
+                <ul class="ul-ranking today">
+                    <li class="user-ranking">1</li>
+                    <li class="user-upgrade">+21</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">2</li>
+                    <li class="user-upgrade">+20</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">3</li>
+                    <li class="user-upgrade">+15</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">4</li>
+                    <li class="user-upgrade">+14</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">5</li>
+                    <li class="user-upgrade">+13</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">6</li>
+                    <li class="user-upgrade">+12</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">7</li>
+                    <li class="user-upgrade">+11</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">8</li>
+                    <li class="user-upgrade">+10</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">9</li>
+                    <li class="user-upgrade">+9</li>
+                    <li class="user-id">abcdefg***</li>
+                    <li class="user-ranking">10</li>
+                    <li class="user-upgrade">+9</li>
+                    <li class="user-id">abcdefg***</li>
+                </ul>
+            </div>            
+            <div class="product-layout">
+                <p>마일리지 받기 대상자</p>
+                <input type="button" name="get-mileage" value="" id="btn-mileage">   
+                <input type="button" name="get-participation" value="" id="btn-participation">
+            </div>            
+            <div class="back-img6"></div>
+        </div>
+        <div id="bg-right"></div>
+>>>>>>> 6b18179957891a3570db4ce5e9cf7902ab6c17c3
     </div>
-    <div id="bg-right"></div>
 </body>
 </html>
