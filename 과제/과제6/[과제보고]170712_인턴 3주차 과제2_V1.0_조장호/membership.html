@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3주차 2번째</title>
+    <link rel="stylesheet" href="membership.css">
+    <script type="text/javascript" src="membership.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="title">
+            <div></div>
+            <strong>기본정보</strong> <span>(<img src="images/icon_down.gif" alt="">)</span>표시는 <span>필수 입력 항목</span>입니다. 반드시 입력해 주십시오.
+        </div>
+        <form action="" name="membership">
+            <fieldset>
+               <div>
+                    <div class="label">
+                        <label for="name">이름</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="id"> 아이디</label>
+                    </div>
+                    <input type="text" id="id">
+                    <span>* 4~ 12자 영문/영문,숫자 조합</span>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="pwd">비밀번호</label>
+                    </div>
+                    <input type="password" id="pwd">
+                    <span>* 10~ 16자의 영문+숫자+특수문자 조합</span>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="pwdCheck">비밀번호 확인</label>
+                    </div>
+                    <input type="password" id="pwdCheck">
+                    <span>위에 입력하신 비밀번호를 한번 더 입력해 주세요.</span>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="pwdCheckQu">비밀번호 찾기 질문</label>
+                    </div>
+                    <select name="pwdCheckQu" id="pwdCheckQu">
+                        <option value="choice">선택하세요</option>
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                    </select>
+                    <span>비밀번호 분실 시 찾을 수 있는 열쇠가 됩니다.</span>
+                </div>
+                <div>
+                    <div class="label">
+                       <img src="images/icon_down.gif" alt="">
+                        <label for="pwdCheckAw">비밀번호 찾기 답변</label>
+                    </div>
+                    <input type="text" id="pwdCheckAw">
+                    <span>질문과 답변을 설정하시고 잘 기억하시기 바랍니다.</span>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="email">이메일</label>
+                    </div>
+                    <input type="email" id="email1">
+                    @
+                    <input type="email" id="email2">
+                    <select name="email" id="email3">
+                        <option value="firsthand">직접입력</option>
+                        <option value="naver">naver.com</option>
+                        <option value="daum">hanmail.net</option>
+                        <option value="google">gmail.com</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="label">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="phone">연락처(자택/직장)</label>
+                    </div>
+                    <select name="local" id="local">
+                        <option value="02">02</option>
+                        <option value="031">031</option>
+                        <option value="032">032</option>
+                        <option value="033">033</option>
+                        <option value="041">041</option>
+                        <option value="042">042</option>
+                        <option value="043">043</option>
+                    </select>
+                    -
+                    <input type="text" id="phone1" size="10">
+                    -
+                    <input type="text" id="phone2" size="10">
+                </div>
+                <div class="cellphone">
+                    <div class="label cellphone">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="cellphone">연락처(휴대폰)</label>
+                    </div>
+                    <select name="mobile" id="mobile">
+                        <option value="SKT">SKT</option>
+                        <option value="KT">KT</option>
+                        <option value="LG U+">LG U+</option>
+                    </select>
+                    <select name="mobile-num" id="mobile-num">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                    </select>
+                    -
+                    <input type="text" id="cellphone" size="10">
+                    -
+                    <input type="text" id="cellphone2" size="10">
+                    <span id="span-cell">* 휴대폰 및 자택 연락처가 없는 경우 서비스 이용이 제한됩니다. <br>
+                    * SMS 수신거부는 가입 완료 후 마이룸/마이존 개인정보수정에서 설정 가능합니다. <br>
+                    * 013으로 시작되는 번호는 연락처 등록이 불가 합니다.
+                    </span>
+                </div>
+                <div>
+                    <div class="label address">
+                        <img src="images/icon_down.gif" alt="">
+                        <label for="address1">주소</label>
+                    </div>
+                    <input type="text" id="address1"> <br>
+                    <input type="text" id="address2" size="40">
+                    <input type="text" id="address3" size="30">
+                </div>
+            </fieldset>
+            · 개인 정보는 거래 진행 또는 이벤트 상품 수령 시 반드시 필요한 정보입니다.
+            <div class="title">
+                <div></div>
+                <strong>추가정보</strong>
+            </div>
+            <fieldset class="insert-info">
+                <div>
+                    <div class="label">
+                        출금계좌 정보
+                    </div>
+                    <label for="account">예금주</label>
+                    <input type="text" id="account" size="10">
+                    <label for="bank">은행</label>
+                    <select name="bank" id="bank">
+                        <option value="bank-choice">은행선택</option>
+                        <option value="kookmin">국민은행</option>
+                        <option value="nonghyub">농협</option>
+                        <option value="shinhan">신한은행</option>
+                        <option value="woori">우리은행</option>
+                    </select>
+                    <label for="account-number">계좌번호</label>
+                    <input type="text" id="account-number" size="10"> <br>
+                    · '-'를 제외한 숫자만 입력
+                </div>
+                <div>
+                    <div class="label">
+                        <label for="checkbox">서비스 이용기간 선택</label>
+                    </div>
+                    <input type="checkbox" id="checkbox" class="checkbox" checked>
+                    개인정보를 파기 또는 분리 저장 · 관리하여야 하는 서비스 미 이용 기간을 회원 탈퇴 시 까지로 요청합니다. <br>
+                    ※ 다만, 별도의 요청이 없을 경우 서비스 미이용 기간은 1년으로 합니다.
+                </div>
+                <input type="submit" class="submit" value="" onclick="membershipJoin()">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3주차 첫 번째</title>
+    <meta charset="utf-8" >
+    <style>
+        html, body, form, table, tr, td, form, input {margin: 0; padding: 0;}
+        table {width: 200px; padding: 5px; border: 1px solid black; text-align: center;}
+        td {width: 30px; height: 30px; padding: 2px;}
+        button {width: 100%; height: 100%; vertical-align: middle;}
+        form {width: 100%;}
+        input {width: inherit; text-align: right;}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="5">
+                <form name="calcForm">
+                    <input type="text" name="calcText" id="calcText">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button id="back" onclick="calc('back')">←</button></td>
+            <td><button></button></td>
+            <td><button id="clear" onclick="calc('clear')">C</button></td>
+            <td><button></button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button id="7" onclick="calc('7')">7</button></td>
+            <td><button id="8" onclick="calc('8')">8</button></td>
+            <td><button id="9" onclick="calc('9')">9</button></td>
+            <td><button id="div" onclick="calc('div')">/</button></td>
+            <td><button id="percent" onclick="calc('percent')">%</button></td>
+        </tr>
+        <tr>
+            <td><button id="4" onclick="calc('4')">4</button></td>
+            <td><button id="5" onclick="calc('5')">5</button></td>
+            <td><button id="6" onclick="calc('6')">6</button></td>
+            <td><button id="multi" onclick="calc('multi')">*</button></td>
+            <td><button></button></td>
+        </tr>
+        <tr>
+            <td><button id="1" onclick="calc('1')">1</button></td>
+            <td><button id="2" onclick="calc('2')">2</button></td>
+            <td><button id="3" onclick="calc('3')">3</button></td>
+            <td><button id="sub" onclick="calc('sub')">-</button></td>
+            <td rowspan="2"><button id="compute" onclick="calc('compute')">=</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="0" onclick="calc('0')">0</button></td>
+            <td><button id="." onclick="calc('.')">.</button></td>
+            <td><button id="sum" onclick="calc('sum')">+</button>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+
+        /* var */
+        var firstNum = null;
+        var secondNum = null;
+        var resultNum = null;
+        var symbol = null;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+=======
+        var point = /\d*[.]\d{2}/;
+        
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+        var number = document.getElementById('calcText');
+
+        /* event */
+        function calc(key)
+        {
+            document.getElementById(key).blur();
+            switch(key)
+            {
+                case "sum":
+                    sum();
+                    break;
+                case "sub":
+                    sub();
+                    break;
+                case "multi":
+                    multi();
+                    break;
+                case "div":
+                    div();
+                    break;
+                case "percent":
+                    percent();
+                    break;
+                case "back":
+                    back();
+                    break;
+                case "compute":
+                    compute();
+                    break;
+                case "clear":
+                    clear();
+                    break;
+                default :
+                    input(key);
+                    break;
+            }
+        }
+
+        function KeyDown(e)
+        {
+            var eventobj = window.event ? event : e;
+            switch(eventobj.keyCode)
+            {
+                case 8:
+                    calc('back');
+                    break;
+                case 13:
+                    calc('compute');
+                    break;
+                case 27:
+                    calc('clear');
+                    break;
+                case 106:
+                    calc('multi');
+                    break;
+                case 107:
+                    calc('sum');
+                    break;
+                case 109:
+                    calc('sub');
+                    break;
+                case 111:
+                    calc('div');
+                    break;
+                case 48:
+                case 96:
+                    calc('0');
+                    break;
+                case 49:
+                case 97:
+                    calc('1');
+                    break;
+                case 50:
+                case 98:
+                    calc('2');
+                    break;
+                case 51:
+                case 99:
+                    calc('3');
+                    break;
+                case 52:
+                case 100:
+                    calc('4');
+                    break;
+                case 53:
+                case 101:
+                    calc('5');
+                    break;
+                case 54:
+                case 102:
+                    calc('6');
+                    break;
+                case 55:
+                case 103:
+                    calc('7');
+                    break;
+                case 56:
+                case 104:
+                    calc('8');
+                    break;
+                case 57:
+                case 105:
+                    calc('9');
+                    break;
+                case 110:
+                case 190:
+                    calc('.');
+                    break;
+                default:
+                    break;
+            }
+        }
+        document.onkeydown = KeyDown;
+
+        /* function */
+        function input(num)
+        {
+            if(number.value == 0)
+            {
+                number.value = null;
+            }
+            if(secondNum == null && symbol != null)
+            {
+                number.value = null
+            }
+
+            number.value += num;
+
+            if(symbol == null)
+            {
+                firstNum = number.value;
+            }
+            else
+            {
+                secondNum = number.value;
+            }
+        }
+
+        function compute()
+        {
+            if(symbol == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+            if(secondNum == null)
+                return;
+
+=======
+            }
+            if(secondNum == null)
+            {
+                return;
+            }
+            
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            switch(symbol)
+            {
+                case 'sum':
+                    resultNum = parseFloat(firstNum) + parseFloat(secondNum);
+<<<<<<< HEAD:과제/과제5/calc.html
+                    number.value = firstNum = resultNum;
+                    secondNum = null;
+                    break;
+=======
+                    print();
+                    break;   
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+                case 'sub':
+                    resultNum = parseFloat(firstNum) - parseFloat(secondNum);
+                    print();
+                    break;
+                case 'multi':
+                    resultNum = parseFloat(firstNum) * parseFloat(secondNum);
+                    print();
+                    break;
+                case 'div':
+                    if(secondNum == 0)
+                    {
+                        number.value = "0으로 나누지 마세요!!!"
+                        return;
+                    }
+                    resultNum = parseFloat(firstNum) / parseFloat(secondNum);
+                    print();
+                    break;
+                case 'percent':
+                    resultNum = parseFloat(firstNum) * (parseFloat(secondNum) / 100);
+                    print();
+                    break;
+            }
+        }
+<<<<<<< HEAD:과제/과제5/calc.html
+
+=======
+        
+        function print()
+        {
+            if(point.test(resultNum))
+            {
+                resultNum = resultNum.toFixed(2);
+            }
+            number.value = firstNum = resultNum;
+            secondNum = null;
+        }
+        
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+        function back()
+        {
+            if (number.value == "")
+            {
+                number.value = "";
+            }
+            else if (number.value.length == 1)
+            {
+                number.value = 0;
+            }
+            else
+            {
+                number.value = number.value.slice("", number.value.length -1);
+            }
+        }
+
+        function clear()
+        {
+            number.value = null;
+            firstNum = null;
+            secondNum = null;
+            resultNum = null;
+            symbol = null;
+        }
+
+        function sum()
+        {
+            if(number.value == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+            if(symbol == "sum")
+            {
+                if(secondNum == null)
+                {
+                    return;
+                }
+
+                compute();
+            }
+            else
+=======
+            }
+            
+            if(symbol != null)
+            {
+                compute();
+            }
+            
+            if(symbol != "sum")
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            {
+                symbol = "sum";
+            }            
+        }
+
+        function sub()
+        {
+            if(number.value == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+            if(symbol == "sub")
+            {
+                if(secondNum == null)
+                {
+                    return;
+                }
+
+                compute();
+            }
+            else
+=======
+            }
+            
+            if(symbol != null)
+            {
+                compute();
+            }
+           
+            if(symbol != "sub")
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            {
+                symbol = "sub";
+            }
+        }
+
+        function multi()
+        {
+            if(number.value == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+            if(symbol == "multi")
+            {
+                if(secondNum == null)
+                {
+                    return;
+                }
+
+                compute();
+            }
+            else
+=======
+            }
+            
+            if(symbol != null)
+            {
+                compute();
+            }
+            
+            if(symbol != "multi")
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            {
+                symbol = "multi";
+            }
+        }
+
+        function div()
+        {
+            if(number.value == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+            if(symbol == "div")
+            {
+                if(secondNum == null)
+                {
+                    return;
+                }
+
+                compute();
+            }
+            else
+=======
+            }
+            
+            if(symbol != null)
+            {
+                compute();
+            }
+            
+            if(symbol != "div")
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            {
+                symbol = "div";
+            }
+        }
+
+        function percent()
+        {
+            if(number.value == null)
+            {
+                return;
+<<<<<<< HEAD:과제/과제5/calc.html
+
+            if(symbol == "percent")
+            {
+                if(secondNum == null)
+                {
+                    return;
+                }
+
+                compute();
+            }
+            else
+=======
+            }
+            
+            if(symbol != null)
+            {
+                compute();
+            }
+            
+            if(symbol != "percent")
+>>>>>>> 72fd3c70e786f0d2ef159e533152fb807d3971ac:과제/과제5/[과제보고]170712_인턴 3주차 과제_V1.0_조장호/calc.html
+            {
+                symbol = "percent";
+            }
+        }
+    </script>
+</body>
+</html>
