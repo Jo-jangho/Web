@@ -9,7 +9,7 @@
         td {width: 30px; height: 30px; padding: 2px;}
         button {width: 100%; height: 100%; vertical-align: middle;}
         form {width: 100%;}
-        input {width: inherit;}
+        input {width: inherit; text-align: right;}
     </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <tr>
             <td colspan="5">
                 <form name="calcForm">
-                    <input type="text" name="calcText" id="calcText">
+                    <input type="text" name="calcText" id="calcText" readonly>
                 </form>
             </td>
         </tr>
@@ -64,15 +64,16 @@
         </tr>
     </table>
     <script type="text/javascript">
-
+        
         /* var */
         var firstNum = null;
         var secondNum = null;
         var resultNum = null;
         var symbol = null;
-
+        var point = /\d*[.]\d{2}/;
+        
         var number = document.getElementById('calcText');
-
+        
         /* event */
         function calc(key)
         {
@@ -108,7 +109,7 @@
                     break;
             }
         }
-
+        
         function KeyDown(e)
         {
             var eventobj = window.event ? event : e;
@@ -184,7 +185,7 @@
             }
         }
         document.onkeydown = KeyDown;
-
+        
         /* function */
         function input(num)
         {
@@ -192,42 +193,47 @@
             {
                 number.value = null;
             }
-            if(symbol != null)
+            if(secondNum == null && symbol != null)
             {
-                number.value = null;
+                number.value = null
             }
-
+            
             number.value += num;
-
+            
             if(symbol == null)
+            {
                 firstNum = number.value;
+            }
             else
+            {
                 secondNum = number.value;
+            }
         }
-
+        
         function compute()
         {
             if(symbol == null)
+            {
                 return;
+            }
             if(secondNum == null)
+            {
                 return;
-
+            }
+            
             switch(symbol)
             {
                 case 'sum':
                     resultNum = parseFloat(firstNum) + parseFloat(secondNum);
-                    number.value = firstNum = resultNum;
-                    secondNum = null;
-                    break;
+                    print();
+                    break;   
                 case 'sub':
                     resultNum = parseFloat(firstNum) - parseFloat(secondNum);
-                    number.value = firstNum = resultNum;
-                    secondNum = null;
+                    print();
                     break;
                 case 'multi':
                     resultNum = parseFloat(firstNum) * parseFloat(secondNum);
-                    number.value = firstNum = resultNum;
-                    secondNum = null;
+                    print();
                     break;
                 case 'div':
                     if(secondNum == 0)
@@ -236,33 +242,49 @@
                         return;
                     }
                     resultNum = parseFloat(firstNum) / parseFloat(secondNum);
-                    number.value = firstNum = resultNum;
-                    secondNum = null;
+                    print();
                     break;
                 case 'percent':
                     resultNum = parseFloat(firstNum) * (parseFloat(secondNum) / 100);
-                    number.value = firstNum = resultNum;
-                    secondNum = null;
+                    print();
                     break;
             }
         }
-
+        
+        function print()
+        {
+            if(point.test(resultNum))
+            {
+                resultNum = resultNum.toFixed(2);
+            }
+            number.value = firstNum = resultNum;
+            secondNum = null;
+        }
+        
         function back()
         {
             if (number.value == "")
             {
                 number.value = "";
             }
-            else if (number.value.length == 1)
+            else if (number.value.length == 1) 
             {
                 number.value = 0;
-            }
-            else
+            } 
+            else 
             {
-                number.value = number.value.slice("", number.value.length -1);
+                number.value = number.value.slice("", number.value.length - 1);
+                if(secondNum == null)
+                {
+                    firstNum = number.value;
+                }
+                else
+                {
+                    secondNum = number.value;
+                }
             }
         }
-
+        
         function clear()
         {
             number.value = null;
@@ -271,109 +293,94 @@
             resultNum = null;
             symbol = null;
         }
-
+        
         function sum()
         {
             if(number.value == null)
-                return;
-
-            if(symbol == "sum")
             {
-                if(secondNum == null)
-                {
-                    return;
-                }
-
+                return;
+            }
+            
+            if(symbol != null)
+            {
                 compute();
             }
-            else
+            
+            if(symbol != "sum")
             {
                 symbol = "sum";
-                number.value = null;
-            }
+            }            
         }
-
+        
         function sub()
         {
             if(number.value == null)
-                return;
-
-            if(symbol == "sub")
             {
-                if(secondNum == null)
-                {
-                    return;
-                }
-
+                return;
+            }
+            
+            if(symbol != null)
+            {
                 compute();
             }
-            else
+           
+            if(symbol != "sub")
             {
                 symbol = "sub";
-                number.value = null;
             }
         }
-
+        
         function multi()
         {
             if(number.value == null)
-                return;
-
-            if(symbol == "multi")
             {
-                if(secondNum == null)
-                {
-                    return;
-                }
-
+                return;
+            }
+            
+            if(symbol != null)
+            {
                 compute();
             }
-            else
+            
+            if(symbol != "multi")
             {
                 symbol = "multi";
-                number.value = null;
             }
         }
-
+        
         function div()
         {
             if(number.value == null)
-                return;
-
-            if(symbol == "div")
             {
-                if(secondNum == null)
-                {
-                    return;
-                }
-
+                return;
+            }
+            
+            if(symbol != null)
+            {
                 compute();
             }
-            else
+            
+            if(symbol != "div")
             {
                 symbol = "div";
-                number.value = null;
             }
         }
-
+        
         function percent()
         {
             if(number.value == null)
-                return;
-
-            if(symbol == "percent")
             {
-                if(secondNum == null)
-                {
-                    return;
-                }
-
+                return;
+            }
+            
+            if(symbol != null)
+            {
                 compute();
             }
-            else
+            
+            if(symbol != "percent")
             {
                 symbol = "percent";
-                number.value = null;
             }
         }
     </script>
