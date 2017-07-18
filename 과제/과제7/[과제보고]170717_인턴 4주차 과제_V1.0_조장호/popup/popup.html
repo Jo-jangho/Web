@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <script type="text/javascript" src="popup.js"></script>
+    <title>popup</title>
+</head>
+<body>
+   <div class="container">
+       <div class="top">
+           추가하기
+       </div>
+       <span>분류</span>
+       <select name="first" id="first" size="6">
+       </select>
+       <select name="second" id="second" size="6">
+       </select>
+       <select name="third" id="third" size="6">
+       </select>
+       <br>
+       <span>추가</span>
+       <input type="text" name="first" id="textFirst">
+       <input type="text" name="second" id="textSecond">
+       <input type="text" name="third" id="textThird">
+       <div class="btnWrap">
+           <button class="btnAdd" onclick="btnAdd()"></button>
+           <button class="btnClose" onclick="btnClose()"></button>
+       </div>
+    </div>
+</body>
+</html>
