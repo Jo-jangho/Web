@@ -1,67 +1,106 @@
 /* var */
-var firstCategory = getLocalStorage();
-var secondCategory = getLocalStorage();
-var thirdCategory = getLocalStorage();
+var firstList = null;
+var secondList = null;
+var thirdList = null;
+
+var selectFirst = null;
+var selectSecond = null;
+var selectThird = null;
+var textFirst = null;
+var textSecond = null;
+var textThird = null;
+
+var firstKey = null;
+var secondKey = null;
+var thirdKey = null;
+
+var firstI = 0;
+var secondI = 0;
+var thirdI = 0;
 
 /* function */
-function getLocalStorage()
+function init()
 {
-    if (typeof localStorage === 'undefined') 
-    {
-        alert('your browser is not localstorage');
-    }
-    else 
-    {
-        try 
-        {
-            return localStorage;
-        } 
-        catch (e) 
-        {
-            if (e === QUOTA_EXCEEDED_ERR) 
-            {
-                alert('Quota exceeded!');
-            }
-        }
-    }
+    firstList = new ArrayList();
+    secondList = new ArrayList();
+    thirdList = new ArrayList();
+
+    selectFirst = document.getElementById('first');
+    selectSecond = document.getElementById('second');
+    selectThird = document.getElementById('third');
+    textFirst = document.getElementById('textFirst');
+    textSecond = document.getElementById('textSecond');
+    textThird = document.getElementById('textThird');
+    
+    selectUpdate("first", selectFirst);
 }
 
 function btnAdd()
 {
-    var selectFirst = document.getElementById('first');
-    var selectSecond = document.getElementById('second');
-    var selectThird = document.getElementById('third');
-    var textFirst = document.getElementById('textFirst');
-    var textSecond = document.getElementById('textSecond');
-    var textThird = document.getElementById('textThird');
-    
     if(textFirst.value != "")
     {
-        firstCategory.setItem("first", textFirst.value);
-        textFirst.value = null;
-        var option1 = document.createElement('option');
-        option1.text = firstCategory.getItem('first');
-        selectFirst.appendChild(option1);
+        selectAdd("first", textFirst, firstI);
+        selectUpdate("first", selectFirst);        
     }
-    if(textSecond.value != "")
+    if(textSecond.value != "" && firstKey != null)
     {
-        secondCategory.setItem("second", textSecond.value);
-        textSecond.value = null;
-        var option2 = document.createElement('option');
-        option2.text = firstCategory.getItem('second');
-        selectSecond.appendChild(option2);
+        selectAdd(firstKey, textSecond, secondI);
+        selectUpdate("second", selectSecond);        
     }
     if(textThird.value != "")
     {
-        thirdCategory.setItem("third", textThird.value);
-        textThird.value = null;
-        var option3 = document.createElement('option');
-        option3.text = firstCategory.getItem('third');
-        selectThird.appendChild(option3);
+        selectAdd("third", textThird, thirdI);
+        selectUpdate("third", selectThird);        
+    }
+}
+
+function selectAdd(_key, _textbox, _i)
+{
+    localStorage.setItem(_key + _i++, _textbox.value);
+    
+    _textbox.value = null;
+}
+
+function selectUpdate(_key, _selectbox)
+{
+    for(var i = 0 ; i < _selectbox.options.length ; i++)
+    {
+        _selectbox.options.length = 0;
+    }
+    
+    for(i = 0 ; i < localStorage.length ; i++)
+    {
+        if(localStorage.getItem(_key + i) != null)
+        {
+            var option = document.createElement('option');
+            option.id = _key + i;
+            option.text = localStorage.getItem(_key + i);
+            _selectbox.appendChild(option);
+        }
+    }
+}
+
+function selectChange(_obj)
+{
+    var value = _obj.options[selectFirst.selectedIndex].value;
+    
+    if(_obj.id == "first")
+    {
+        firstKey = value;
+    }
+    if(_obj.id == "second")
+    {
+        secondKey = value;
+    }
+    if(_obj.id == "third")
+    {
+        thirdKey = value;
     }
 }
 
 function btnClose()
 {
+    window.opener.document.location.href = window.opener.document.URL;
     window.close();
 }
+

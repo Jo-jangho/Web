@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
     <script type="text/javascript" src="popup.js"></script>
+    <script type="text/javascript" src="../arrayList.js"></script>
     <title>popup</title>
 </head>
-<body>
+<body onload="init()">
    <div class="container">
        <div class="top">
            추가하기
        </div>
        <span>분류</span>
-       <select name="first" id="first" size="6">
+       <select name="first" id="first" size="6" onchange="selectChange(this)">
        </select>
-       <select name="second" id="second" size="6">
+       <select name="second" id="second" size="6" onchange="selectChange(this)">
        </select>
-       <select name="third" id="third" size="6">
+       <select name="third" id="third" size="6" onchange="selectChange(this)">
        </select>
        <br>
        <span>추가</span>

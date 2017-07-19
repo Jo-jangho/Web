@@ -1,76 +1,76 @@
 /* var */
-var localStorage = getLocalStorage();
 
 /* function */
-function getLocalStorage()
+function mainInit()
 {
-    if (typeof localStorage === 'undefined') 
+    for(var i = 0 ; i < localStorage.length ; i++)
     {
-        alert('your browser is not localstorage');
-    }
-    else 
-    {
-        try 
+        if(localStorage.getItem("first" + i) != null)
         {
-            return localStorage;
-        } 
-        catch (e) 
-        {
-            if (e === QUOTA_EXCEEDED_ERR) 
-            {
-                alert('Quota exceeded!');
-            }
+            addDiv("first" + i, i);
         }
     }
 }
 
 function openPopup() {
-    window.open("popup/popup.html", "Example", "scrollbars=no, width=530, height=220, menubar=false");
+    window.open("popup/popup.html", "Example", "scrollbars=no, width=550, height=230, menubar=false");
 }
 
-function addDiv() {
-    addCategory();
-    addCategoryFirst();
-    addCheckbox();
-    addSpanFirst();
-    addChange();
-    addClose();
+function addDiv(_key, _index) {
+    addCategory(_index);
+    addCategoryFirst(_index);
+    addCheckbox(_index);
+    addSpanFirst(_key, _index);
+    addChange(_index);
+    addClose(_index);
 }
 
-function addCategory() {
+function addCategory(_index) {
     var category = document.createElement('div');
     category.className = "category";
-    category.id = "category" + 1;
+    category.id = "category" + _index;
     document.getElementById('container').appendChild(category);
 }
 
-function addCategoryFirst() {
+function addCategoryFirst(_index) {
     var categoryFirst = document.createElement('div');
     categoryFirst.className = "categoryFirst";
-    categoryFirst.id = "categoryFirst" + 1;
-    document.getElementById('category1').appendChild(categoryFirst);
+    categoryFirst.id = "categoryFirst" + _index;
+    document.getElementById('category' + _index).appendChild(categoryFirst);
 }
 
-function addCheckbox() {
+function addCheckbox(_index) {
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = true;
-    document.getElementById('categoryFirst1').appendChild(checkbox);
+    document.getElementById('categoryFirst' + _index).appendChild(checkbox);
 }
 
-function addSpanFirst() {
+function addSpanFirst(_key, _index) {
     var span = document.createElement('span');
-    document.getElementById('categoryFirst1').appendChild(span);
+    span.innerHTML = localStorage.getItem(_key);
+    document.getElementById('categoryFirst' + _index).appendChild(span);
 }
 
-function addChange() {
+function addChange(_index) {
     var btnChange = document.createElement('button');
     btnChange.className = "btnChange";
-    document.getElementById('categoryFirst1').appendChild(btnChange);
+    document.getElementById('categoryFirst' + _index).appendChild(btnChange);
 }
 
-function addClose() {
+function addClose(_index) {
     var btnClose = document.createElement('button');
     btnClose.className = "btnClose";
-    document.getElementById('categoryFirst1').appendChild(btnClose);
+    btnClose.id = _index;
+    btnClose.setAttribute('onclick', 'deleteCategory(this)');
+    document.getElementById('categoryFirst' + _index).appendChild(btnClose);
+}
+
+function deleteCategory(obj)
+{
+    if(confirm("1차분류 및 하위분류 그리고, 모든 데이터가 삭제됩니다.\n정말로 삭제 하시겠습니까?"))
+    {
+        localStorage.removeItem("first" + obj.id);
+        window.location.reload();
+    }
 }

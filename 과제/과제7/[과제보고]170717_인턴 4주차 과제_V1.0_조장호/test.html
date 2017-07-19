@@ -1,0 +1,71 @@
+<script type="text/javascript" src="arrayList.js"></script>
+<h1>로컬 스토리지</h1> 키:
+<input id="key"> 값:
+<input id="val">
+<input onclick="save()" type="button" value="저장">
+<input onclick="clearStorage()" type="button" value="모두 삭제">
+<h3>로컬 스토리지 내역</h3>
+<div id="storage"></div>
+
+
+<script type="text/javascript">
+    
+    Storage.prototype.setObject = function(key, value) 
+    {
+        this.setItem(key, JSON.stringify(value));
+    };
+    
+    
+    /**
+     *	스토리지 저장
+     */
+    var firstList = new ArrayList();
+    
+    function save() 
+    {
+        var key = document.getElementById("key");
+        var val = document.getElementById("val");
+        
+        localStorage.setItem("first" + 1, "마일리지");
+        localStorage.setItem("first" + 2, "포탈서비스");
+        localStorage.setItem("마일리지" + 1, "내마일리지");
+        localStorage.setItem("마일리지" + 2, "입금");
+        localStorage.setItem("마일리지" + 3, "충전");
+        
+        ShowStorage();
+    }
+    /**
+     *	스토리지 출력
+     */
+    function ShowStorage() 
+    {
+        var storage = document.getElementById("storage");
+        storage.innerHTML = "";
+        
+        for (var i = 0; i < localStorage.length; i++) 
+        {
+            /*var k = localStorage[i];
+            storage.innerHTML += '<div>' + k + ': ' + localStorage[k] + ' <input type = "button" value = "삭제" ' + ' onclick="DeleteStorage(\'' + k + '\')"/></div>';*/
+            if(localStorage.getItem("first" + i) != null)
+                storage.innerHTML += localStorage.getItem("first" + i) + "<br>";
+            if(localStorage.getItem("마일리지" + i) != null)
+                storage.innerHTML += localStorage.getItem("마일리지" + i) + "<br>";
+        }
+    }
+    /**
+     *	스토리지 삭제
+     */
+    function DeleteStorage(key) 
+    {
+        delete localStorage[key]; // 로컬 스토리지에 key값에 해당하는 데이타를 삭제한다.
+        ShowStorage();
+    }
+    /**
+     *	스토리지 모든 데이타 삭제
+     */
+    function clearStorage() 
+    {
+        localStorage.clear(); // 로컬 스토리지를 전부 지운다.
+        ShowStorage();
+    }
+</script>
