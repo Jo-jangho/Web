@@ -5,13 +5,13 @@ var m_pwd = null;
 var m_pwdCheck = null;
 var m_pwdCheckQu = null;
 var m_pwdCheckAw = null;
-var m_email = [3];
+var m_email = [];
 var m_local = null;
-var m_phone = [2];
+var m_phone = [];
 var m_mobile = null;
 var m_mobileNum = null;
-var m_cellphone = [2];
-var m_address = [3];
+var m_cellphone = [];
+var m_address = [];
 var m_account = null;
 var m_bank = null;
 var m_accountNumber = null;
@@ -115,6 +115,7 @@ function mixCheck()
     mix(phone_check2, m_cellphone[1], "전화번호를 다시 확인 해 주세요");
     mix(zip_check, m_address[0], "우편번호를 다시 확인 해 주세요");
 }
+
 function mix(check, object, text) 
 {
     if(m_empty == true)
@@ -130,7 +131,6 @@ function mix(check, object, text)
         m_empty = true;
     }
 }
-
 
 function moreInfoCheck() 
 {
@@ -189,20 +189,20 @@ function emailSelect(object)
     switch (index) 
     {
         case 0:
-            m_email[1].value = '';
-            m_email[1].disabled = false;
+            document.getElementById('email2').value = '';
+            document.getElementById('email2').disabled = false;
             break;
         case 1:
-            m_email[1].value = 'naver.com';
-            m_email[1].disabled = true;
+            document.getElementById('email2').value = 'naver.com';
+            document.getElementById('email2').disabled = true;
             break;
         case 2:
-            m_email[1].value = 'hanmail.net';
-            m_email[1].disabled = true;
+            document.getElementById('email2').value = 'hanmail.net';
+            document.getElementById('email2').disabled = true;
             break;
         case 3:
-            m_email[1].value = 'gmail.com';
-            m_email[1].disabled = true;
+            document.getElementById('email2').value = 'gmail.com';
+            document.getElementById('email2').disabled = true;
             break;
     }
 }

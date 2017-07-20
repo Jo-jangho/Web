@@ -47,7 +47,7 @@ function btnAdd()
     if(textSecond.value != "" && firstKey != null)
     {
         localStorage.countSecond = Number(localStorage.countSecond) + 1;
-        localStorage.setItem(firstKey + localStorage.countSecond, "Second"+textSecond.value);
+        localStorage.setItem(firstKey + localStorage.countSecond, textSecond.value);
         selectUpdate(firstKey, selectSecond);        
         
         textSecond.value = null;
@@ -55,8 +55,8 @@ function btnAdd()
     if(textThird.value != "")
     {
         localStorage.countThird = Number(localStorage.countThird) + 1;
-        localStorage.setItem("Second"+secondKey + localStorage.countThird, textThird.value);
-        selectUpdate("Second"+secondKey, selectThird);        
+        localStorage.setItem(secondKey + localStorage.countThird, textThird.value);
+        selectUpdate(secondKey, selectThird);        
         
         textThird.value = null;   
     }

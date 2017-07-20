@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
         <tr>
             <td colspan="5">
                 <form name="calcForm">
-                    <input type="text" name="calcText" id="calcText" readonly>
+                    <input type="text" name="calcText" id="calcText">
                 </form>
             </td>
         </tr>
@@ -195,7 +196,7 @@
             }
             if(secondNum == null && symbol != null)
             {
-                number.value = null
+                number.value = null;
             }
             
             number.value += num;
@@ -273,15 +274,7 @@
             } 
             else 
             {
-                number.value = number.value.slice("", number.value.length - 1);
-                if(secondNum == null)
-                {
-                    firstNum = number.value;
-                }
-                else
-                {
-                    secondNum = number.value;
-                }
+                number.value = number.value.slice(0, number.value.length -1);
             }
         }
         
