@@ -14,23 +14,22 @@ var firstKey = null;
 var secondKey = null;
 var thirdKey = null;
 
-var firstI = 0;
-var secondI = 0;
-var thirdI = 0;
-
 /* function */
 function init()
 {
-    firstList = new ArrayList();
-    secondList = new ArrayList();
-    thirdList = new ArrayList();
-
     selectFirst = document.getElementById('first');
     selectSecond = document.getElementById('second');
     selectThird = document.getElementById('third');
     textFirst = document.getElementById('textFirst');
     textSecond = document.getElementById('textSecond');
     textThird = document.getElementById('textThird');
+    
+    if(localStorage.countFirst == null)
+    {
+        localStorage.countFirst = 0;
+        localStorage.countSecond = 0;
+        localStorage.countThird = 0;
+    }
     
     selectUpdate("first", selectFirst);
 }
@@ -39,36 +38,35 @@ function btnAdd()
 {
     if(textFirst.value != "")
     {
-        selectAdd("first", textFirst, firstI);
+        localStorage.countFirst = Number(localStorage.countFirst) + 1;
+        localStorage.setItem("first" + localStorage.countFirst, textFirst.value);
         selectUpdate("first", selectFirst);        
+        
+        textFirst.value = null;
     }
     if(textSecond.value != "" && firstKey != null)
     {
-        selectAdd(firstKey, textSecond, secondI);
-        selectUpdate("second", selectSecond);        
+        localStorage.countSecond = Number(localStorage.countSecond) + 1;
+        localStorage.setItem(firstKey + localStorage.countSecond, textSecond.value);
+        selectUpdate(firstKey, selectSecond);        
+        
+        textSecond.value = null;
     }
     if(textThird.value != "")
     {
-        selectAdd("third", textThird, thirdI);
-        selectUpdate("third", selectThird);        
+        localStorage.countThird = Number(localStorage.countThird) + 1;
+        localStorage.setItem(secondKey + localStorage.countThird, textThird.value);
+        selectUpdate(secondKey, selectThird);        
+        
+        textThird.value = null;   
     }
-}
-
-function selectAdd(_key, _textbox, _i)
-{
-    localStorage.setItem(_key + _i++, _textbox.value);
-    
-    _textbox.value = null;
 }
 
 function selectUpdate(_key, _selectbox)
 {
-    for(var i = 0 ; i < _selectbox.options.length ; i++)
-    {
-        _selectbox.options.length = 0;
-    }
+    _selectbox.options.length = 0;
     
-    for(i = 0 ; i < localStorage.length ; i++)
+    for(var i = 0 ; i < localStorage.length ; i++)
     {
         if(localStorage.getItem(_key + i) != null)
         {
@@ -80,19 +78,27 @@ function selectUpdate(_key, _selectbox)
     }
 }
 
+function selectReset(select)
+{
+    select.options.length = 0;
+}
+
 function selectChange(_obj)
 {
-    var value = _obj.options[selectFirst.selectedIndex].value;
+    var value = _obj.options[_obj.selectedIndex].value;
     
     if(_obj.id == "first")
     {
         firstKey = value;
+        selectUpdate(firstKey, selectSecond);
+        selectReset(selectThird);
     }
     if(_obj.id == "second")
     {
         secondKey = value;
+        selectUpdate(secondKey, selectThird);
     }
-    if(_obj.id == "third")
+    if(_obj.id == "thrid")
     {
         thirdKey = value;
     }
@@ -103,4 +109,3 @@ function btnClose()
     window.opener.document.location.href = window.opener.document.URL;
     window.close();
 }
-

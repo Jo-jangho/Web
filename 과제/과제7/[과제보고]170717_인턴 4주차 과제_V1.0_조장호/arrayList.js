@@ -1,69 +1,67 @@
-ArrayList = function()
+List = function()
 {
-    var items = {};
+    var key = [];
+    var value = [];
 
-    this.add = function(_key, _value)
+    this.add = function(_obj)
     {
-        items.key = _key;
-        items.value = _value;
+        key.push(_obj.key);
+        value.push(_obj.value);
+        this.count = value.length;
     };
-    this.set = function(_i, _obj)
+    this.setKey = function(_i, _obj)
     {
-        items[_i] = _obj;
+        key[_i] = _obj;
+        this.count = value.length;
     };
-    this.get = function(_i)
+    this.getKey = function(_i)
     {
-        return items[_i];
+        return key[_i];
     };
-    this.getLast = function()
+    this.setValue = function(_i, _obj)
     {
-        return items[items.length - 1];  
+        value[_i] = _obj;
+        this.count = value.length;
     };
-    this.getAll = function()
+    this.getValue = function(_i)
     {
-        return items;
+        return value[_i];
     };
     this.getCount = function()
     {
-        return items.length - 1;  
+        return this.count.length - 1;  
     };
     this.remove = function(_obj)
     {
         var i = this.indexOf(_obj);
         if(i >= 0) 
         {
-            items.splice(i, 1);
+            key.splice(i, 1);
+            value.splice(i, 1);
         }
-        this.count = items.length;
+        this.count = value.length;
     };
     this.removeAt = function(_i)
     {  
-      items.splice(_i, 1);
-      this.count = items.length;
+        key.splice(_i, 1);
+        value.splice(_i, 1);
+        this.count = value.length;
     };
     this.clear = function()
     {
-        items.splice(0, items.length);
-    };
-    this.length = function()
-    {
-        return items.length;
+        key.splice(0, key.length);
+        value.splice(0, value.length);
+        this.count = value.length;
     };
     this.indexOf = function(_obj)
     {
-        for(var i = 0; i < items.length; i++)
+        for(var i = 0; i < key.length; i++)
         {
-            if(items[i] == _obj) 
+            if(key[i] == _obj) 
             {
                 return i; 
             }
         }
         return -1;
-    };
-    this.sort = function(_a, _b)
-    {
-        var temp = items[_a];
-        items[_a] = items[_b];
-        items[_b] = temp;
     };
 };
