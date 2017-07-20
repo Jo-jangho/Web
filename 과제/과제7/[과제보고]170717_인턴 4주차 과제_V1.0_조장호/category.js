@@ -3,101 +3,112 @@
 /* function */
 function mainInit()
 {    
-    for(var i = 0 ; i < localStorage.length ; i++)
+	var FirstKeyList = [];
+	var SecondKeyList = [];
+	var ThirdKeyList = [];
+	FirstKeyList = FindKeyFullNameList("first");
+	if(FirstKeyList.length <= 0)
+		return;
+	
+	for(i = 0 ; i < FirstKeyList.length ; i++)
     {
-        var key = localStorage.key(i);
+		var key = FirstKeyList[i];
         var value = localStorage.getItem(key);
-
-        if(key.indexOf("first") == 0)
-        {
-            addFirstDiv(key, value);
-        }
-    }
-    for(i = 0 ; i < localStorage.length ; i++)
-    {
-        var key = localStorage.key(i);
-        var value = localStorage.getItem(key);
-
-        if(key.indexOf("마일리지") == 0)
-        {
-            addSecondDiv(key, value);
-        }
-        if(key.indexOf("포탈서비스") == 0)
-        {
-            addSecondDiv(key, value);
-        }
-        if(key.indexOf("회원정보") == 0)
-        {
-            addSecondDiv(key, value);
-        }
-        if(key.indexOf("신용등급/보안") == 0)
-        {
-            addSecondDiv(key, value);
-        }
-    }
-    for(i = 0 ; i < localStorage.length ; i++)
-    {
-        var key = localStorage.key(i);
-        var value = localStorage.getItem(key);
-
-        if(key.indexOf("내마일리지") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("입금") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("충전") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("상품권몰") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("게임몰") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("매니아옥션") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("매니아존") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("게임매니아") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("서비스이용제한") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("개인정보관리") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("회원가입") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("신용등급/인증") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("결제보안센터") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-        if(key.indexOf("마일리지결제인증") == 0)
-        {
-            addThirdDiv(key, value);
-        }
-    }
+		
+		//
+		console.log("Key:"+key+" val:"+value);  
+		CreateDiv(key,value);
+		
+	
+		key = value;
+		SecondKeyList = FindKeyFullNameList(key);
+		if(SecondKeyList.length <= 0)
+			continue;
+	
+		for(j = 0 ; j < SecondKeyList.length ; j++)
+		{
+			key = SecondKeyList[j];
+			value = localStorage.getItem(key);
+			
+			//
+			console.log("Key:"+key+" val:"+value);  
+			addSecondDiv(key, value);
+			/**/
+			//
+			key = value;
+			ThirdKeyList = FindKeyFullNameList(key);
+			if(ThirdKeyList.length <= 0)
+				continue;
+			for(k = 0 ;  k < ThirdKeyList.length ; k++)
+			{
+				key = ThirdKeyList[k];
+				value = localStorage.getItem(key);
+				
+				console.log("Key:"+key+" val:"+value);  
+				addThirdDiv(key, value);
+			}
+		}
+	}
 }
+
+//////////////////////////////////////////////////////////////////////////////////
+function CreateDiv(_key, _value) 
+{
+	NewCategory(_value);
+	NewCategoryforName("First", _value);//addCategoryFirst(_key, _value);
+    addCheckbox(_key, _value);
+	NewSpan(_value,_value);
+    addChange(_key, _value);
+    addClose(_key, _value);
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+function NewCategoryforName(_name, _id) 
+{
+    var categoryFirst = document.createElement('div');
+    categoryFirst.className = "category"+ _name;
+    categoryFirst.id = "categoryFirst" + _id;
+    document.getElementById('category' + _id).appendChild(categoryFirst);
+}
+
+function NewCategory(_id) 
+{
+    var category = document.createElement('div');
+    category.className = "category";
+    category.id = "category" + _id;
+    document.getElementById('container').appendChild(category);
+}
+
+function NewSpan(_parentID, _value) 
+{
+	var span = document.createElement('span');
+    span.innerHTML = _value;
+	
+	if(document.getElementById('categoryFirst' + _parentID) == null)
+		return;
+	
+    document.getElementById('categoryFirst' + _parentID).appendChild(span);
+	
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+function FindKeyFullNameList(_Key)
+{
+	console.log("FindKey is "+_Key);  
+	var KeyList = [];
+	for(var i = 0 ; i < localStorage.length ; i++)
+    {
+		var key = localStorage.key(i);
+		if(key.indexOf(_Key) == 0)
+		{
+			KeyList.push(key);
+		}
+	}
+	
+	return KeyList;
+}
+
+
 
 function openPopup() 
 {
@@ -105,6 +116,7 @@ function openPopup()
 }
 
 /**/
+
 function addFirstDiv(_key, _value) 
 {
     addCategory(_key, _value);
@@ -121,7 +133,8 @@ function addSecondDiv(_key, _value)
     addCategorySecond(_key, _value);
     addSecondBtnUp(_key, _value);
     addSecondBtnDown(_key, _value);
-    addSecondSpan(_key, _value);
+    //addSecondSpan(_key, _value);
+	addSecondSpan(_value, _value);
 }
 
 function addThirdDiv(_key, _value)
@@ -191,6 +204,12 @@ function addWrap(_key, _value)
     var wrap = document.createElement('div');
     wrap.className = "clearfix";
     wrap.id = "wrap" + _value;
+	if(document.getElementById('category' + _key) == null)
+	{
+		//console.log(_key);  
+		return;
+	}
+	
     document.getElementById('category' + _key).appendChild(wrap);
 }
 
@@ -200,6 +219,11 @@ function addCategorySecond(_key, _value)
     var categorySecond = document.createElement('div');
     categorySecond.className = "categorySecond clearfix";
     categorySecond.id = "categorySecond" + _value;
+	if(document.getElementById('wrap' + _value) == null)
+	{
+		//console.log(_key);  
+		return;
+	}
     document.getElementById('wrap' + _value).appendChild(categorySecond);
 }
 
@@ -223,9 +247,11 @@ function addSecondBtnDown(_key, _value)
 
 function addSecondSpan(_key, _value)
 {
+	//_key = _key.replace(/\d+/, "");
+	_value = _key.replace(/Second/, "");
     var span = document.createElement('span');
-    span.innerHTML = localStorage.getItem(_key);
-    document.getElementById('categorySecond' + _value).appendChild(span);
+    span.innerHTML = _value;//localStorage.getItem(_key);
+    document.getElementById('categorySecond' + _key).appendChild(span);
 }
 
 /* 

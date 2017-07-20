@@ -39,7 +39,7 @@ function btnAdd()
     if(textFirst.value != "")
     {
         localStorage.countFirst = Number(localStorage.countFirst) + 1;
-        localStorage.setItem("first" + localStorage.countFirst, textFirst.value);
+		localStorage.setItem("first" + localStorage.countFirst, textFirst.value);
         selectUpdate("first", selectFirst);        
         
         textFirst.value = null;
@@ -47,7 +47,7 @@ function btnAdd()
     if(textSecond.value != "" && firstKey != null)
     {
         localStorage.countSecond = Number(localStorage.countSecond) + 1;
-        localStorage.setItem(firstKey + localStorage.countSecond, textSecond.value);
+        localStorage.setItem(firstKey + localStorage.countSecond, "Second"+textSecond.value);
         selectUpdate(firstKey, selectSecond);        
         
         textSecond.value = null;
@@ -55,8 +55,8 @@ function btnAdd()
     if(textThird.value != "")
     {
         localStorage.countThird = Number(localStorage.countThird) + 1;
-        localStorage.setItem(secondKey + localStorage.countThird, textThird.value);
-        selectUpdate(secondKey, selectThird);        
+        localStorage.setItem("Second"+secondKey + localStorage.countThird, textThird.value);
+        selectUpdate("Second"+secondKey, selectThird);        
         
         textThird.value = null;   
     }
@@ -72,7 +72,8 @@ function selectUpdate(_key, _selectbox)
         {
             var option = document.createElement('option');
             option.id = _key + i;
-            option.text = localStorage.getItem(_key + i);
+			var val = localStorage.getItem(_key + i);
+            option.text = val.replace(/Second/, "");
             _selectbox.appendChild(option);
         }
     }
@@ -95,7 +96,8 @@ function selectChange(_obj)
     }
     if(_obj.id == "second")
     {
-        secondKey = value;
+        secondKey = "Second"+value;
+		console.log("secondKey:"+secondKey);  
         selectUpdate(secondKey, selectThird);
     }
     if(_obj.id == "thrid")
