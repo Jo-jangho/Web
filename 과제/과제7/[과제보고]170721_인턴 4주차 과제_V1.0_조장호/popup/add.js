@@ -14,7 +14,10 @@ var firstKey = null;
 var secondKey = null;
 var thirdKey = null;
 
-/* function */
+//////////////////////////////////////////////////////////////////////////
+/* 
+* init 
+*/
 function init()
 {
     selectFirst = document.getElementById('first');
@@ -34,6 +37,8 @@ function init()
     selectUpdate("first", selectFirst);
 }
 
+//////////////////////////////////////////////////////////////////////////
+/////
 function btnAdd()
 {
     if(textFirst.value != "")
@@ -62,6 +67,8 @@ function btnAdd()
     }
 }
 
+//////////////////////////////////////////////////////////////////////////
+/////
 function selectUpdate(_key, _selectbox)
 {
     _selectbox.options.length = 0;
@@ -84,6 +91,8 @@ function selectReset(select)
     select.options.length = 0;
 }
 
+//////////////////////////////////////////////////////////////////////////
+/////
 function selectChange(_obj)
 {
     var value = _obj.options[_obj.selectedIndex].value;
@@ -96,8 +105,8 @@ function selectChange(_obj)
     }
     if(_obj.id == "second")
     {
-        secondKey = "Second"+value;
-		console.log("secondKey:"+secondKey);  
+        secondKey = "Second" + value;
+		console.log("secondKey:" + secondKey);  
         selectUpdate(secondKey, selectThird);
     }
     if(_obj.id == "thrid")
@@ -106,8 +115,10 @@ function selectChange(_obj)
     }
 }
 
+//////////////////////////////////////////////////////////////////////////
+/////
 function btnClose()
 {
-    window.opener.document.location.href = window.opener.document.URL;
+    window.opener.top.location.href = "../category.html";
     window.close();
 }

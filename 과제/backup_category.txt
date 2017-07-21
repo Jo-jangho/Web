@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////////////////
+function CreateDiv(_key, _value) 
+{
+	NewCategory(_value);
+	NewCategoryforName("First", _value);
+    addCheckbox(_key, _value);
+	NewSpan(_value,_value);
+    addChange(_key, _value);
+    addClose(_key, _value);
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+function NewCategoryforName(_name, _id) 
+{
+    var categoryFirst = document.createElement('div');
+    categoryFirst.className = "category"+ _name;
+    categoryFirst.id = "categoryFirst" + _id;
+    document.getElementById('category' + _id).appendChild(categoryFirst);
+}
+
+function NewCategory(_id) 
+{
+    var category = document.createElement('div');
+    category.className = "category";
+    category.id = "category" + _id;
+    document.getElementById('container').appendChild(category);
+}
+
+function NewSpan(_parentID, _value) 
+{
+	var span = document.createElement('span');
+    span.innerHTML = _value;
+	
+	if(document.getElementById('categoryFirst' + _parentID) == null)
+		return;
+	
+    document.getElementById('categoryFirst' + _parentID).appendChild(span);
+	
+}

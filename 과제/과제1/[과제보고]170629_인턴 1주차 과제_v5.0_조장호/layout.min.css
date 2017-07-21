@@ -1,0 +1,4 @@
+.content,container{display:inline-block}.aside,.main,.mainfoot,.title{float:left}*{box-sizing:border-box}body{text-align:center}div{margin:5px;border:1px solid #000}.remocon{width:100px;height:200px;position:relative;left:520px;top:-350px;line-height:190px}.content{background-color:#faebd7;width:500px;border:none}.left,.right{width:157px;height:50px;float:left}.title{<<<<<<< HEAD
+=======
+    display:inline-block;>>>>>>> 6b18179957891a3570db4ce5e9cf7902ab6c17c3
+    width:155px;height:20px;border:none}.nav{clear:both;height:50px}.aside{width:50px;height:300px}.main{width:210px;height:245px}.mainfoot{width:430px;height:43px}.footer{clear:both;height:45px}

@@ -1,12 +1,12 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
-html,
 body,
+button,
 div,
-span,
-button {
+html,
+span {
     margin: 0;
     padding: 0;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 button {
-    border: 0 none;
+    border: 0;
 }
 
 .container {
@@ -41,7 +41,7 @@ button {
     width: 54px;
     height: 22px;
     background-image: url(image/but_add_m.gif);
-    margin-top: 5px;
+    margin-top: 5px
 }
 
 .category {
@@ -58,7 +58,7 @@ button {
 }
 
 .categoryFirst input {
-    display: inline-block;  
+    display: inline-block;
     position: absolute;
     top: 5px;
     left: 5px;
@@ -67,27 +67,27 @@ button {
 .categoryFirst span {
     font-size: 12px;
     color: #fff;
-    font-weight: bold;
+    font-weight: 700;
     position: absolute;
     top: 5px;
     left: 25px;
 }
 
-.btnChange {
+.btnChange,
+.btnClose {
     width: 16px;
     height: 13px;
-    background-image: url(image/but_edite_s.gif);
     position: absolute;
-    top: 7px;
+    top: 7px
+}
+
+.btnChange {
+    background-image: url(image/but_edite_s.gif);
     right: 25px;
 }
 
 .btnClose {
-    width: 16px;
-    height: 13px;
     background-image: url(image/but_del_s.gif);
-    position: absolute;
-    top: 7px;
     right: 5px;
 }
 
@@ -95,37 +95,35 @@ button {
     width: 195px;
     height: 18px;
     background-color: #f0f0f0;
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     padding-left: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
+.down,
 .up {
     width: 13px;
     height: 12px;
-    background-image: url(image/ico_up.gif);
     margin-top: 2px;
     margin-right: 2px;
-    display: block;
     float: left;
+    display: block;
+}
+
+.up {
+    background-image: url(image/ico_up.gif);
 }
 
 .down {
-    width: 13px;
-    height: 12px;
     background-image: url(image/ico_down.gif);
-    margin-top: 2px;
-    margin-right: 2px;
-    display: block;
-    float: left;
 }
 
 .categorySecond span {
     font-size: 11px;
     color: #044982;
-    font-weight: bold;
+    font-weight: 700;
     float: left;
 }
 
@@ -137,12 +135,11 @@ button {
 .categoryThird span {
     font-size: 11px;
     color: #044982;
-    font-weight: normal;
+    font-weight: 400;
     float: left;
 }
 
-.clearfix:after
-{
+.clearfix:after {
     content: "";
     display: block;
     clear: both;
