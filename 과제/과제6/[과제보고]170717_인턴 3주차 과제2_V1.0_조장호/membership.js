@@ -18,6 +18,7 @@ var m_accountNumber = null;
 var m_checkbox = true;
 var m_moreInfo = false;
 var m_empty = false;
+var m_bCheck = true;
 
 /* function */
 function membershipJoin() 
@@ -26,6 +27,10 @@ function membershipJoin()
     emptyCheck();
     mixCheck();
     m_moreInfo = moreInfoCheck();
+    
+    if(m_bCheck == false)
+        return;
+    
     print();
 }
 
