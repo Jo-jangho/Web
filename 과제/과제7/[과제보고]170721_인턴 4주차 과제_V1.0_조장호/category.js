@@ -284,9 +284,6 @@ function deleteCategory(/*button*/ _obj)
 {
     if(confirm("1차분류 및 하위분류 그리고, 모든 데이터가 삭제됩니다.\n정말로 삭제 하시겠습니까?"))
     {
-        /*localStorage.removeItem("first" + _obj.id.slice(_obj.id.length - 2));
-        localStorage.countFirst = Number(localStorage.countFirst) - 1;
-        window.location.reload();*/
         var btnIndex = Number(_obj.id.replace(/btnClosefirst/, "")) - 1;
         var key = FirstKeyList[btnIndex];
         var value = localStorage.getItem(key);
@@ -337,7 +334,6 @@ function btnUp(/*button*/ _obj)
         var key = FirstKeyList[i];
         var value = localStorage.getItem(key);
 
-        //console.log("Key:" + key + " val:" + value);
         /**/ 
 		key = value;
 		SecondKeyList = FindKeyFullNameList(key);
@@ -349,7 +345,6 @@ function btnUp(/*button*/ _obj)
 			key = SecondKeyList[j];
 			value = localStorage.getItem(key);
             
-            //console.log("Second!!! Key:" + key + " val:" + value + " name:" + _obj.name);
             if(value == _obj.name)
             {
                 if(j == 0)  return;
@@ -366,7 +361,6 @@ function btnUp(/*button*/ _obj)
             {
                 /**/
                 key = value;
-                //console.log("Key:" + key + " val:" + value + " name:" + _obj.name);
                 ThirdKeyList = FindKeyFullNameList("Second" + key);
                 if(ThirdKeyList.length <= 0)
                     continue;
@@ -377,7 +371,6 @@ function btnUp(/*button*/ _obj)
 				key = ThirdKeyList[k];
 				value = localStorage.getItem(key);
                 
-                //console.log("Third!!! Key:" + key + " val:" + value + " name:" + _obj.name);
                 if(value == _obj.name)
                 {
                     var keyNext = ThirdKeyList[k - 1];
