@@ -1,8 +1,4 @@
 /* var */
-var firstList = null;
-var secondList = null;
-var thirdList = null;
-
 var selectFirst = null;
 var selectSecond = null;
 var selectThird = null;
@@ -44,6 +40,11 @@ function btnAdd()
     if(textFirst.value != "")
     {
         localStorage.countFirst = Number(localStorage.countFirst) + 1;
+        if(localStorage.countFirst < 10)
+        {
+            localStorage.countFirst = "0" + localStorage.countFirst;
+        }
+        
 		localStorage.setItem("first" + localStorage.countFirst, textFirst.value);
         selectUpdate("first", selectFirst);        
         
@@ -52,6 +53,11 @@ function btnAdd()
     if(textSecond.value != "" && firstKey != null)
     {
         localStorage.countSecond = Number(localStorage.countSecond) + 1;
+        if(localStorage.countSecond < 10)
+        {
+            localStorage.countSecond = "0" + localStorage.countSecond;
+        }
+        
         localStorage.setItem(firstKey + localStorage.countSecond, textSecond.value);
         selectUpdate(firstKey, selectSecond);        
         
@@ -60,6 +66,11 @@ function btnAdd()
     if(textThird.value != "")
     {
         localStorage.countThird = Number(localStorage.countThird) + 1;
+        if(localStorage.countThird < 10)
+        {
+            localStorage.countThird = "0" + localStorage.countThird;
+        }
+        
         localStorage.setItem(secondKey + localStorage.countThird, textThird.value);
         selectUpdate(secondKey, selectThird);        
         
@@ -80,6 +91,14 @@ function selectUpdate(_key, _selectbox)
             var option = document.createElement('option');
             option.id = _key + i;
 			var val = localStorage.getItem(_key + i);
+            option.text = val.replace(/Second/, "");
+            _selectbox.appendChild(option);
+        }
+        else if(localStorage.getItem(_key + "0" + i) != null)
+        {
+            var option = document.createElement('option');
+            option.id = _key + "0" + i;
+			var val = localStorage.getItem(_key + "0" + i);
             option.text = val.replace(/Second/, "");
             _selectbox.appendChild(option);
         }

@@ -11,7 +11,7 @@
     <div class="content">
         <div class="title">
             <div></div> <strong>기본정보</strong> <span>(<img src="images/icon_down.gif" alt="">)</span>표시는 <span>필수 입력 항목</span>입니다. 반드시 입력해 주십시오. </div>
-        <form action="" id="membership" name="membership">
+        <form action="" id="membership" name="membership" onsubmit="return check()">
             <fieldset>
                 <div>
                     <div class="label">
@@ -132,8 +132,10 @@
                         <label for="checkbox">서비스 이용기간 선택</label>
                     </div>
                     <input type="checkbox" id="checkbox" class="checkbox" checked> 개인정보를 파기 또는 분리 저장 · 관리하여야 하는 서비스 미 이용 기간을 회원 탈퇴 시 까지로 요청합니다.
-                    <br> ※ 다만, 별도의 요청이 없을 경우 서비스 미이용 기간은 1년으로 합니다. </div>
-                <input type="submit" class="submit" value="" onclick="membershipJoin()"> </fieldset>
+                    <br> ※ 다만, 별도의 요청이 없을 경우 서비스 미이용 기간은 1년으로 합니다. 
+                </div>
+                <input type="submit" class="submit" value=""> 
+            </fieldset>
         </form>
     </div>
 </body>

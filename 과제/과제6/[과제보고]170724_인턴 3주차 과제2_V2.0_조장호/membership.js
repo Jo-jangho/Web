@@ -18,22 +18,9 @@ var m_accountNumber = null;
 var m_checkbox = true;
 var m_moreInfo = false;
 var m_empty = false;
-var m_bCheck = true;
+var m_bCheck = false;
 
 /* function */
-function membershipJoin() 
-{
-    init();
-    emptyCheck();
-    mixCheck();
-    m_moreInfo = moreInfoCheck();
-    
-    if(m_bCheck == false)
-        return;
-    
-    print();
-}
-
 function init() 
 {
     m_form = document.membership;
@@ -61,6 +48,19 @@ function init()
     m_checkbox = m_form.checkbox;
 }
 
+function check()
+{
+    init();
+   
+    m_bCheck = emptyCheck();
+    m_bCheck = mixCheck();
+    m_moreInfo = moreInfoCheck();
+    
+    print();
+    
+    return m_bCheck;
+}
+
 function emptyCheck() 
 {
     empty(m_id, "ID를 입력하세요");
@@ -77,6 +77,13 @@ function emptyCheck()
     empty(m_address[0], "우편번호를 입력하세요");
     empty(m_address[1], "주소를 입력하세요");
     empty(m_address[2], "정확한 주소를 입력하세요");
+    
+    if(m_empty == true)
+    {
+        return false;
+    }
+    else
+        return true;
 }
 
 function empty(object, text) 
@@ -119,6 +126,13 @@ function mixCheck()
     mix(phone_check2, m_cellphone[0], "전화번호를 다시 확인 해 주세요");
     mix(phone_check2, m_cellphone[1], "전화번호를 다시 확인 해 주세요");
     mix(zip_check, m_address[0], "우편번호를 다시 확인 해 주세요");
+    
+    if(m_empty == true)
+    {
+        return false;
+    }
+    else 
+        return true;
 }
 
 function mix(check, object, text) 
@@ -161,6 +175,7 @@ function print()
 {
     if(m_empty == true)
     {
+        m_empty = false;
         return;
     }
     
@@ -183,6 +198,7 @@ function print()
     
     var checked = "\n서비스 이용기간 선택 : " + m_checkbox.checked;
     result += checked;
+    m_empty = false;
     
     /**/
     alert(result);

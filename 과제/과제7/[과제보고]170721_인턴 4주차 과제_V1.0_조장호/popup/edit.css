@@ -22,11 +22,13 @@ button {
 }
 
 input {
-    height: 15px;
+    height: 18px;
+    font-size: 12px;
 }
 
 .container {
-    width: 265px;
+    width: 245px;
+    height: 100%;
     margin: 0 auto;
     border: 2px solid #93bd3a;
     padding: 5px;
@@ -57,11 +59,13 @@ input {
 }
 
 .up {
-    background-image: url(../image/ico_up.gif)
+    background-image: url(../image/ico_up.gif);
+    margin-right: 3px;
 }
 
 .down {
-    background-image: url(../image/ico_down.gif)
+    background-image: url(../image/ico_down.gif);
+    margin-right: 5px;
 }
 
 .edit {
@@ -76,10 +80,10 @@ input {
     margin-top: 10px;
 }
 
-.btnAdd {
-    width: 46px;
-    height: 22px;
-    background-image: url(../image/but_add.gif);
+.btnCheck {
+    width: 48px;
+    height: 24px;
+    background-image: url(../image/but_check.png);
     margin-right: 10px;
 }
 
