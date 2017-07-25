@@ -274,7 +274,16 @@
             } 
             else 
             {
-                number.value = number.value.slice(0, number.value.length -1);
+                number.value = number.value.slice(0, number.value.length - 1);
+            }
+            
+            if(symbol == null)
+            {
+                firstNum = number.value;
+            }
+            else
+            {
+                secondNum = number.value;
             }
         }
         

@@ -1,5 +1,7 @@
 /* var */
 var FirstKeyList = null;
+var SecondKeyList = null;
+var ThirdKeyList = null;
 var FirstValueList = [];
 
 /* function */
@@ -126,8 +128,33 @@ function btnEdit(/*button*/ _obj)
 {
     var btnIndex = _obj.id.replace(/btnedit/, "");
     
+    var key = FirstKeyList[btnIndex];
+    var value = localStorage.getItem(key);
     FirstValueList[btnIndex] = document.getElementById(btnIndex).value;
-    textUpdate();
+    
+    if(value == FirstValueList[btnIndex])
+        return;
+    /*if(key != FirstValueList[btnIndex])
+        return;*/
+    
+    localStorage.setItem(key, FirstValueList[btnIndex]);
+    console.log("Key:" + key + " val:" + value + " newVal : " + FirstValueList[btnIndex]); 
+    /**/
+    key = value;
+    SecondKeyList = FindKeyFullNameList(key);
+    if(SecondKeyList.length <= 0)
+        return;
+    
+    for(var i = 0 ; i < SecondKeyList.length ; i++)
+    {
+        key = SecondKeyList[i];
+        value = localStorage.getItem(key);
+        
+        localStorage.setItem(FirstValueList[btnIndex], value);
+        localStorage.removeItem(key);
+    }
+    
+    window.opener.top.location.href = "../category.html";
 }
 
 //////////////////////////////////////////////////////////////////////////

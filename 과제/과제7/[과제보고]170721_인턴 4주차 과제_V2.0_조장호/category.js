@@ -17,8 +17,7 @@ function mainInit()
     {
 		var key = FirstKeyList[i];
         var value = localStorage.getItem(key);
-		
-		//console.log("Key:" + key + " val:" + value);  
+		 
 		addFirstDiv(key, value);
 		
         /**/
@@ -32,7 +31,6 @@ function mainInit()
 			key = SecondKeyList[j];
 			value = localStorage.getItem(key);
 			
-			//console.log("Key:" + key + " val:" + value);  
 			addSecondDiv(key, value);
             
 			/**/
@@ -46,7 +44,6 @@ function mainInit()
 				key = ThirdKeyList[k];
 				value = localStorage.getItem(key);
 				
-				//console.log("Key:" + key + " val:" + value);  
 				addThirdDiv(key, value);
 			}
 		}
@@ -157,7 +154,7 @@ function addClose(_key, _value)
 */
 function addWrap(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var wrap = document.createElement('div');
     wrap.className = "clearfix";
     wrap.id = "wrap" + _value;
@@ -171,7 +168,7 @@ function addWrap(_key, _value)
 
 function addCategorySecond(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var categorySecond = document.createElement('div');
     categorySecond.className = "categorySecond clearfix";
     categorySecond.id = "categorySecond" + _value;
@@ -184,7 +181,7 @@ function addCategorySecond(_key, _value)
 
 function addSecondBtnUp(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var btnUp = document.createElement('button');
     btnUp.className = "up";
     btnUp.id = "btnUp" + _value;
@@ -195,7 +192,7 @@ function addSecondBtnUp(_key, _value)
 
 function addSecondBtnDown(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var btnDown = document.createElement('button');
     btnDown.className = "down";
     btnDown.id = "btnDown" + _value;
@@ -218,7 +215,7 @@ function addSecondSpan(_key, _value)
 */
 function addCategoryThird(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
 	_key = _key.replace(/Second/, "");
     var categoryThird = document.createElement('div');
     categoryThird.className = "categoryThird clearfix";
@@ -228,7 +225,7 @@ function addCategoryThird(_key, _value)
 
 function addThirdBtnUp(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var btnUp = document.createElement('button');
     btnUp.className = "up";
     btnUp.id = _key;
@@ -239,7 +236,7 @@ function addThirdBtnUp(_key, _value)
 
 function addThirdBtnDown(_key, _value) 
 {
-    _key = _key.replace(/\d+/, "");
+    _key = _key.slice(0, _key.length - 2);
     var btnDown = document.createElement('button');
     btnDown.className = "down";
     btnDown.id = _key;
@@ -284,10 +281,13 @@ function deleteCategory(/*button*/ _obj)
 {
     if(confirm("1차분류 및 하위분류 그리고, 모든 데이터가 삭제됩니다.\n정말로 삭제 하시겠습니까?"))
     {
-        var btnIndex = Number(_obj.id.replace(/btnClosefirst/, "")) - 1;
+        var btnIndex = Number(_obj.id.replace(/btnClosefirst/, ""));
+        
         var key = FirstKeyList[btnIndex];
         var value = localStorage.getItem(key);
         
+        console.log("btnIndex:" + btnIndex); 
+        console.log("Key:" + key + " val:" + value); 
         localStorage.countFirst = Number(localStorage.countFirst) - 1;
         localStorage.removeItem(key);
         
@@ -304,7 +304,7 @@ function deleteCategory(/*button*/ _obj)
             localStorage.countSecond = Number(localStorage.countSecond) - 1;
             localStorage.removeItem(key);
 
-            /**/
+            
             key = value;
             ThirdKeyList = FindKeyFullNameList("Second" + key);
             if(ThirdKeyList.length <= 0)
@@ -433,23 +433,23 @@ function btnDown(/*button*/ _obj)
                     continue;
                 
                 for(var k = 0 ;  k < ThirdKeyList.length - 1 ; k++)
-			{
-				key = ThirdKeyList[k];
-				value = localStorage.getItem(key);
-                
-                console.log("Third!!! Key:" + key + " val:" + value + " name:" + _obj.name);
-                if(value == _obj.name)
                 {
-                    var keyNext = ThirdKeyList[k + 1];
-                    localStorage.setItem("temp", localStorage.getItem(key));
-                    localStorage.setItem(key, localStorage.getItem(keyNext));
-                    localStorage.setItem(keyNext, localStorage.getItem("temp"));
-                    localStorage.removeItem("temp");
+                    key = ThirdKeyList[k];
+                    value = localStorage.getItem(key);
 
-                    window.location.reload();
-                    return;
+                    console.log("Third!!! Key:" + key + " val:" + value + " name:" + _obj.name);
+                    if(value == _obj.name)
+                    {
+                        var keyNext = ThirdKeyList[k + 1];
+                        localStorage.setItem("temp", localStorage.getItem(key));
+                        localStorage.setItem(key, localStorage.getItem(keyNext));
+                        localStorage.setItem(keyNext, localStorage.getItem("temp"));
+                        localStorage.removeItem("temp");
+
+                        window.location.reload();
+                        return;
+                    }
                 }
-            }
             }
         }
     }
