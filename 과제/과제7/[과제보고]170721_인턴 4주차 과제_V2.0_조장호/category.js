@@ -283,11 +283,9 @@ function deleteCategory(/*button*/ _obj)
     {
         var btnIndex = Number(_obj.id.replace(/btnClosefirst/, ""));
         
-        var key = FirstKeyList[btnIndex];
+        var key = FirstKeyList[btnIndex - 1];
         var value = localStorage.getItem(key);
         
-        console.log("btnIndex:" + btnIndex); 
-        console.log("Key:" + key + " val:" + value); 
         localStorage.countFirst = Number(localStorage.countFirst) - 1;
         localStorage.removeItem(key);
         
@@ -303,7 +301,6 @@ function deleteCategory(/*button*/ _obj)
 
             localStorage.countSecond = Number(localStorage.countSecond) - 1;
             localStorage.removeItem(key);
-
             
             key = value;
             ThirdKeyList = FindKeyFullNameList("Second" + key);

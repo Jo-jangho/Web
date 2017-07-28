@@ -3,7 +3,7 @@ $dbh = new PDO('mysql:host=localhost;dbname=opentutorials', 'root', '111111', ar
 
 swtich($_GET['mode'])
 {
-    case 'insert':
+    case insert:
         $stmt = $dbh->prepare("INSERT INTO topic (title, description, created) VALUES (:title, :description, now())");
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
