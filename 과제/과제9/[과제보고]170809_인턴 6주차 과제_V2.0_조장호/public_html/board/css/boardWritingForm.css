@@ -1,0 +1,38 @@
+/**
+ * BoardWritingForm.css : 글쓰기 폼 css
+ */
+* {
+    box-sizing: border-box;
+}
+
+.writingWrap {
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+#content {
+    width: 100%;
+}
+
+#submit {
+    border: 0 none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    float: left;
+}
+
+#cancel {
+    border: 0 none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    float: right;
+}

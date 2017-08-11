@@ -1,0 +1,11 @@
+<!--
+ * boardList.html 게시판 리스트 출력 페이지
+-->
+
+<tr>
+    <td><?= $row['posting_num'] ?></td>
+    <td><a href="/board/boardContentForm.html?index=<?= $row['posting_num'] ?>"> <?= $row['title'] ?></a></td>
+    <td><?= $row['nick_name'] ?></td>
+    <td><?= $row['date'] ?></td>
+    <td><?= $row['tic'] ?></td>
+</tr>

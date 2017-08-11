@@ -1,0 +1,52 @@
+<?php
+/**
+ * boardWritingForm.html : 글쓰기 폼 페이지
+*/
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "boardWritingForm.php";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<link rel="stylesheet" href="css/boardWritingForm.css">
+<script type="text/javascript" src="js/boardWritingForm.js"></script>
+
+<div class="writingWrap">
+    <form action="boardWriting.php?index=<?=$index?>" ENCTYPE="multipart/form-data" method="post" onsubmit="return check(<?= $row['nick_name'], $_SESSION['nick_name'] ?>)">
+        <table class="writingTable">
+            <tr>
+                <td><label for="title">제목</label></td>
+                <td><input type="text" id="title" name="title" value="<?php if($index){echo $row['title'];} ?>"></td>
+            </tr>
+            <tr>
+                <td><label for="file_name">첨부파일</label></td>
+                <td><input type="file" id="file_name" name="file_name"  size="2">
+                    <?php if($index){echo $row['file_name'];} ?> 파일이 추가되어 있습니다.
+                </td>
+            </tr>
+            <tr>
+                <td><label for="content">내용</label></td>
+                <td><textarea name="content" id="content" cols="35" rows="10"><?php if($index){echo $row['content'];} ?></textarea></td>
+            </tr>
+        </table>
+        <?php
+            if($index === null)
+            {
+                echo "<input type=submit value=등록 name=reg id=submit>";
+            }
+            else
+            {
+                echo "<input type=submit value=수정 name=edit id=submit>";
+            }
+        ?>
+    </form>
+    <button value="취소" id="cancel" onclick="cancel()">취소</button>
+</div>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+    include_once "../common/footer.html";
+?>

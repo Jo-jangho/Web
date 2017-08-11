@@ -1,0 +1,33 @@
+<?php
+/*
+ * loginForm.html : 로그인 폼 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../common/header.html";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<form action="login.php" method="post">
+    <table>
+        <tr>
+            <td><label for="ID">ID</label></td>
+            <td><input type="text" id="ID" name="ID"></td>
+        </tr>
+        <tr>
+            <td><label for="PW">PW</label></td>
+            <td><input type="password" id="PW" name="PW"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="로그인"></td>
+        </tr>
+    </table>
+</form>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+include_once "../common/footer.html";
+?>

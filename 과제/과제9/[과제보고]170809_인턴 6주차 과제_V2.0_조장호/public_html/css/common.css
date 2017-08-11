@@ -1,0 +1,96 @@
+/*
+ * common.css : 공통 css
+ */
+html,
+body,
+h1,
+div,
+a,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.btnWrap {
+    margin-top: 10px;
+    text-align: right;
+}
+
+button {
+    margin-left: 10px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+thead {
+    background-color: aqua;
+}
+
+tbody {
+    background-color: antiquewhite;
+}
+
+.no,
+.hit{
+    width: 100px;
+}
+
+.title {
+    width: 350px;
+}
+
+.author {
+    width: 100px;
+}
+
+.date {
+    width: 180px;
+}
+
+hr {
+    width: 800px;
+    margin-top: 30px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+h3+div {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+ul {
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+    float: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.paging {
+    width: 310px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clearFix:after {
+    display: block;
+    content: "";
+    clear: both;
+}

@@ -1,0 +1,50 @@
+<?php
+/**
+ * boardContentForm.html : 게시글 내용
+*/
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "boardContentForm.php";
+include_once "../common/header.html";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<link rel="stylesheet" href="css/boardContentForm.css">
+<table>
+    <thead>
+    <tr>
+        <th class="no">번호</th>
+        <th class="title">제목</th>
+        <th class="author">작성자</th>
+        <th class="date">작성일</th>
+        <th class="hit">조회</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><?= $row['posting_num'] ?></td>
+        <td><?= $row['title'] ?></td>
+        <td><?= $row['nick_name'] ?></td>
+        <td><?= $row['date'] ?></td>
+        <td><?= $row['tic'] + 1 ?></td>
+    </tr>
+    <tr>
+        <th class="file">첨부파일</th>
+        <td colspan="4"><a href="fileDownload.php?file_name=<?=$row['file_name'] ?>"> <?= $row['file_name'] ?></a></td>
+    </tr>
+    <tr>
+        <td colspan="5"><pre class="content"><?= $row['content'] ?> </pre></td>
+    </tr>
+    </tbody>
+</table>
+<button onclick=setUrl("../index.html")>목록</button>
+<button onclick=updateForm("<?= $row['nick_name'] . '&index=' . $index ?>")>수정</button>
+<button onclick=deleteItem("<?= $row['nick_name'] . '&index=' . $index ?>")>삭제</button>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+include_once "../common/footer.html";
+?>

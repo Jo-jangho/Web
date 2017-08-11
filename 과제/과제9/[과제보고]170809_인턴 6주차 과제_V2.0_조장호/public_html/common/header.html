@@ -1,0 +1,40 @@
+<!--
+ * header.html : 모든 페이지에 적용되는 header 페이지
+/-->
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>조장호 개인 게시판</h1>
+    <div class="btnWrap">
+        <?php
+            session_start();
+
+            if(isset($_SESSION['login_user']))
+            {
+                echo $_SESSION['nick_name'] . "님 안녕하세요";
+                ?>
+                <button onclick=setUrl("../index.html")>홈</button>
+                <button onclick=setUrl("../user/logout.php")>로그아웃</button>
+        <?php
+            }
+            else
+            {
+            ?>
+                <button onclick=setUrl("../index.html")>홈</button>
+                <button onclick=setUrl("../join/joinForm.html")>회원가입</button>
+                <button onclick=setUrl("../user/loginForm.html")>로그인</button>
+        <?php
+            }
+        ?>
+    </div>
+    <hr>
