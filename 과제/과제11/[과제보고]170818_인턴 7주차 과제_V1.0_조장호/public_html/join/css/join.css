@@ -1,0 +1,28 @@
+/**
+ * join.css : 회원가입 페이지 css
+ */
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+form>div
+{
+    height: 30px;
+    margin-top: 10px;
+}
+
+form div div {
+    width: 200px;
+    float: left;
+}
+
+form div div input {
+    float: left;
+}
+
+#btnSubmit input {
+    clear: both;
+    margin: 0 auto;
+}

@@ -1,0 +1,210 @@
+<?php
+/**
+ * reserveForm.html : 예매 결제 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../Class/CDBControl.php";
+
+///////////////////////////////////////////////////////////
+///
+try
+{
+    /* 로그인 유무 예외 처리 */
+    session_start();
+    if(isset($_SESSION['login_user']) == false)
+    {
+        throw new Exception('로그인 하고 오세요');
+    }
+
+    /* var */
+    $idx = $_GET['idx'];
+    $adult = $_GET['a'];
+    $kid = $_GET['k'];
+
+    /* 예외 처리 */
+    if($idx == null)
+    {
+        throw new Exception("idx is null");
+    }
+    if($adult == null)
+    {
+        throw new Exception("adult is null");
+    }
+    if($kid == null)
+    {
+        throw new Exception("kid is null");
+    }
+
+    /* DB 연결 */
+    $db = new CDBControl();
+    if($db == null)
+    {
+        throw new CDBException(1, "", 'Could not connect to database server');
+    }
+
+
+    /* 버스 SELECT 쿼리 전송 */
+    $query = "SELECT * FROM `bus` WHERE `idx`='";
+    $query .= $idx . "';";
+    $result = $db->query($query);
+    if($result == false)
+    {
+        throw new CDBException(2, "", '양식을 확인 해 주세요.');
+    }
+
+    $row = $result->fetch_assoc();
+    $day = $row['st_time'];
+    list($y, $m, $d, $h, $i, $s) = explode(" ",date("Y m d H i s", strtotime($row['st_time'])));
+
+    /* 유저 SELECT 쿼리 전송 */
+    $query = "SELECT * FROM `user` WHERE `id`='";
+    $query .= $_SESSION['login_user'] . "';";
+    $result = $db->query($query);
+    if($result == false)
+    {
+        throw new CDBException(2, "", '양식을 확인 해 주세요.');
+    }
+
+    $id = $result->fetch_assoc();
+
+    /* 예매 SELECT 쿼리 전송 */
+    $query = "SELECT `seat_num` FROM `reserve`;";
+    $result = $db->query($query);
+    if($result == false)
+    {
+        throw new CDBException(2, "", '양식을 확인 해 주세요.');
+    }
+
+    $payMoney = ($adult * $row['money']) + ($kid * ($row['money'] / 2));
+
+    $db->close();
+}
+catch (CDBException $e)
+{
+
+}
+catch (Exception $e)
+{
+    echo "<script>history.back();</script>";
+    echo $e->getMessage();
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "../common/header.html";
+?>
+<link rel="stylesheet" href="css/reserveForm.css">
+<script language="JavaScript" src="js/reserveForm.js"></script>
+
+///////////////////////////////////////////////////////////
+/// 좌석 지정
+<div class="table clearFix">
+    <div class="tr-span">
+        <span><?= $y ?>년 <?= $m ?>월 <?= $d ?>일 <?= $h ?>:<?= $i ?> 출발</span>
+        <span><?= $row['st_location'] ?> --> <?= $row['ar_location'] ?></span>
+    </div>
+    <div class="tr">
+        예약하시려는 승차권 매수는 일반 <?= $adult ?>매, 아동 <?= $kid ?>매 입니다.<br>
+        잔여좌석중 1개의 좌석을 지정하세요. ( <div class="pos"></div> : 예약 가능 좌석, <div class="impos"></div> : 이미 예약된 좌석)<br>
+        좌석을 선택해 주세요 : <input type="text" id="person" value="<?= $adult + $kid ?>" disabled>
+    </div>
+    <div class="seatWrap clearFix">
+        <div class="front-back">앞</div>
+        <div class="door-driver">출입문</div>
+        <div class="blank"></div>
+        <?php
+        for($i = 1 ; $i < 45 ; $i += 4)
+        {
+        ?>
+            <div class="seat">
+                <?= $i ?><br><div class="pos" id="seat<?= $i ?>" onclick="seatCheck(this)"></div>
+            </div>
+        <?php
+        }
+        ?>
+
+        <?php
+        for($i = 2 ; $i < 45 ; $i += 4)
+        {
+        ?>
+            <div class="seat">
+                <?= $i ?><br><div class="pos" id="seat<?= $i ?>" onclick="seatCheck(this)"></div>
+            </div>
+        <?php
+        }
+        ?>
+
+        <div class="blank-w"></div>
+
+        <div class="seat">
+            45<br><div class="pos" id="seat45" onclick="seatCheck(this)"></div>
+        </div>
+
+        <div class="door-driver">운전석</div>
+        <div class="blank"></div>
+
+        <?php
+        for($i = 3 ; $i < 45 ; $i += 4)
+        {
+        ?>
+            <div class="seat">
+                <?= $i ?><br><div class="pos" id="seat<?= $i ?>" onclick="seatCheck(this)"></div>
+            </div>
+        <?php
+        }
+        ?>
+
+        <?php
+        for($i = 4 ; $i < 45 ; $i += 4)
+        {
+        ?>
+            <div class="seat">
+                <?= $i ?><br><div class="pos" id="seat<?= $i ?>" onclick="seatCheck(this)"></div>
+            </div>
+        <?php
+        }
+
+        /* 예약 좌석 막기 */
+        while($block = $result->fetch_assoc())
+        {
+            $seatNum = "seat" . $block['seat_num'];
+            echo "<script>seatBlock('" . $seatNum . "');</script>";
+        }
+
+        ?>
+    </div>
+    <div class="front-back">뒤</div>
+</div>
+
+///////////////////////////////////////////////////////////
+/// 결제 폼
+<form action="pay.php" method="post" class="clearFix" onsubmit="return check();">
+
+    <input type="hidden" name="id" value="<?= $_SESSION['login_user'] ?>">
+    <input type="hidden" name="idx" value="<?= $idx ?>">
+    <input type="hidden" name="adult" value="<?= $adult ?>">
+    <input type="hidden" name="kid" id="kid" value="<?= $kid ?>">
+
+    <div class="pay-money"><label for="payMoney">결제금액</label></div>
+    <input type="text" name="payMoney" id="payMoney" value="<?= $payMoney ?>" readonly>
+
+    <div class="mileage"><label for="mileage">마일리지</label></div>
+    <input type="text" name="mileage" id="mileage" value="<?= $id['mileage'] ?>" readonly>
+
+    <div class="mileage"><label for="afterMileage">결제 후 마일리지</label></div>
+    <input type="text" name="afterMileage" id="afterMileage" value="<?= ($id['mileage'] - $payMoney) ?>" readonly>
+
+    <div class="pay-pos"><label for="payPos">결제가능</label></div>
+    <input type="text" name="payPos" id="payPos" value="<?
+    if(($payMoney - $id['mileage']) < 0)
+        echo "가능";
+    else
+        echo "불가능"; ?>" readonly>
+    <input type="submit" id="submit" value="승차권 예약">
+</form>
+
+<?php
+include_once "../common/footer.html";
+?>

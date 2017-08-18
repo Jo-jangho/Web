@@ -1,0 +1,32 @@
+<?php
+/**
+ * index.html : 메인 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "Class/CDBControl.php";
+
+session_start();
+if(isset($_SESSION['login_user']) == true)
+{
+    echo "<script>location.href = 'reserve/reserve.html';</script>";
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "common/header.html";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+
+<div class="index">
+    <a href="user/login.html">버스 예매를 하기위해 로그인을 해주세요</a>
+</div>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+include_once "common/footer.html";
+?>

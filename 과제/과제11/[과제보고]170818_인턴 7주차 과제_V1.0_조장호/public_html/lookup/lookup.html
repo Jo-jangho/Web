@@ -1,0 +1,97 @@
+<?php
+/**
+ * lookup.html : 예매 조회 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../Class/CDBControl.php";
+
+try
+{
+    /* 로그인 유무 예외 처리 */
+    session_start();
+    if(isset($_SESSION['login_user']) == false)
+    {
+        throw new Exception('로그인 하고 오세요');
+    }
+
+    $id = $_SESSION['login_user'];
+
+    if($id == null)
+    {
+        throw new Exception("id is null");
+    }
+
+    /* DB 연결 */
+    $db = new CDBControl();
+    if($db == null)
+    {
+        throw new CDBException(1, "", 'Could not connect to database server');
+    }
+
+    /* 쿼리 전송 */
+    $query = "SELECT * FROM `reserve` WHERE `id`='" . $id . "';";
+    $result = $db->query($query);
+    if ($result == null)
+    {
+        throw new CDBException(2, "../index.html", "로그인 정보를 다시 확인 하세요.");
+    }
+}
+catch (CDBException $e)
+{
+
+}
+catch (Exception $e)
+{
+    echo $e->getMessage();
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "../common/header.html";
+?>
+<link rel="stylesheet" href="css/lookup.css">
+<script language="JavaScript" src="js/lookup.js"></script>
+
+<?php
+while($row = $result->fetch_assoc())
+{
+?>
+    <div class="ticket clearFix">
+        <div class="bus-num">
+            <div>버스번호</div>
+            <div><?= $row['bus_num'] ?></div>
+        </div>
+        <div class="st-time">
+            <div>출발시간</div>
+            <div><?= $row['st_time'] ?></div>
+        </div>
+        <div class="st-location">
+            <div>출발지</div>
+            <div><?= $row['st_location'] ?></div>
+        </div>
+        <div class="ar-location">
+            <div>도착지</div>
+            <div><?= $row['ar_location'] ?></div>
+        </div>
+        <div class="seat-num">
+            <div>좌석번호</div>
+            <div><?= $row['seat_num'] ?></div>
+        </div>
+        <div class="seat-num">
+            <div>금액</div>
+            <div><?= $row['money'] ?></div>
+        </div>
+        <div class="cancel">
+            <div>취소여부</div>
+            <div><button onclick="cancel(<?= $row['reserve_seq'] ?>)">취소</button></div>
+        </div>
+    </div>
+<?php
+}
+?>
+
+<?php
+include_once "../common/footer.html";
+?>

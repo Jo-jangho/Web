@@ -1,0 +1,101 @@
+/**
+ * reserve.css : 예매 조회 페이지 css
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+form {
+    width: 300px;
+    margin: 0;
+    float: left;
+}
+
+fieldset {
+    width: 300px;
+    margin: 0;
+    padding: 5px;
+    float: left;
+}
+
+fieldset div,
+fieldset input,
+fieldset select {
+    margin-bottom: 10px;
+    float: left;
+}
+
+fieldset div {
+    width: 100px;
+}
+
+fieldset select {
+    width: 170px;
+    height: 21px;
+}
+
+#start {
+    height: 60px;
+}
+
+#year {
+    width: 80px;
+}
+
+#year+div {
+    width: 80px;
+    padding-left: 5px;
+    float: left;
+    text-align: left;
+}
+
+#month,
+#day,
+#hour,
+#min {
+    width: 50px;
+    float: left;
+}
+
+#month+div,
+#day+div,
+#hour+div,
+#min+div {
+    width: 25px;
+    float: left;
+}
+
+#submit {
+    float: none;
+    margin: 0 auto;
+}
+
+.table {
+    width: 450px;
+    float: left;
+}
+
+.thead {
+    height: 30px;
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.thead .tr .td {
+    height: 30px;
+    width: 90px;
+    float: left;
+    border: 1px solid white;
+}
+
+.tbody {
+    background-color: antiquewhite;
+}
+
+.tbody .tr .td {
+    height: 30px;
+    width: 90px;
+    float: left;
+    border: 1px solid white;
+}

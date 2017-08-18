@@ -1,0 +1,22 @@
+/**
+ * lookup.css : 예매조회 페이지 css
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+.ticket {
+    width: 402px;
+    margin: 10px auto;
+    border: 1px solid gray;
+}
+
+.ticket div {
+    float: left;
+}
+
+.ticket div div {
+    width: 200px;
+    border: 1px solid gray;
+}

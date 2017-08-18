@@ -1,0 +1,60 @@
+<!--
+ * header.html : 모든 페이지에 적용되는 header 페이지
+/-->
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>버스 예매 시스템</h1>
+    <div class="btnWrap">
+        <?php
+            if(isset($_SESSION['login_user']))
+            {
+                echo $_SESSION['login_user'] . "님 안녕하세요";
+                ?>
+                <button onclick=setUrl("../index.html")>홈</button>
+                <button onclick=setUrl("../user/logout.php")>로그아웃</button>
+        <?php
+            }
+            else
+            {
+            ?>
+                <button onclick=setUrl("../index.html")>홈</button>
+                <button onclick=setUrl("../join/joinForm.html")>회원가입</button>
+                <button onclick=setUrl("../user/login.html")>로그인</button>
+        <?php
+            }
+        ?>
+    </div>
+        <?php
+            if(isset($_SESSION['login_user']) == true && $_SESSION['login_user'] == 'root')
+            {
+        ?>
+                <ul>
+                    <li><button onclick=setUrl("../reserve/reserve.html")>버스 예약</button></li>
+                    <li><button onclick=setUrl("../lookup/lookup.html")>예약 조회</button></li>
+                    <li><button onclick=setUrl("../admin/busForm.html")>버스 관리</button></li>
+                    <li><button onclick=setUrl("../admin/busList.html")>버스 목록</button></li>
+                </ul>
+        <?php
+            }
+            else
+            {
+            ?>
+                <ul>
+                    <li><button onclick=setUrl("../reserve/reserve.html")>버스 예약</button></li>
+                    <li><button onclick=setUrl("../lookup/lookup.html")>예약 조회</button></li>
+                </ul>
+        <?php
+            }
+        ?>
+    <hr>

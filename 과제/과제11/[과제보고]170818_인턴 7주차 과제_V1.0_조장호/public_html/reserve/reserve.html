@@ -1,0 +1,266 @@
+<?php
+/**
+ * reserve.html : 예매 조회 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../Class/CDBControl.php";
+include_once "../Class/ArrayList.php";
+
+///////////////////////////////////////////////////////////
+///
+try
+{
+    /* 로그인 유무 예외 처리 */
+    session_start();
+    if(isset($_SESSION['login_user']) == false)
+    {
+        throw new Exception('로그인 하고 오세요');
+    }
+
+    /* 조회 유무 예외 처리 */
+    if(isset($_POST['lookup']) == true)
+    {
+        /* var */
+        $stLocation = $_POST['st_location'];
+        $arLocation = $_POST['ar_location'];
+        $time = $_POST['year'] ."-" .$_POST['month'] ."-" .$_POST['day'] ." " .$_POST['hour'] .":" . $_POST['min'] . ":00";
+        $nextDay = strtotime($time . " +1 DAY");
+        $nextDay = date("Y-m-d H:i:s", $nextDay);
+        $busGrade = $_POST['grade'];
+        $adult = $_POST['adult'];
+        $kid = $_POST['kid'];
+
+        $var = new ArrayList();
+        $var->add($stLocation);
+        $var->add($arLocation);
+        $var->add($time);
+        $var->add($nextDay);
+        $var->add($busGrade);
+        $var->add($adult);
+        $var->add($kid);
+
+        /* 예외 처리 */
+        for($i = 0 ; $i < $var->size() ; $i++)
+        {
+            if($var->get($i) == null)
+            {
+                throw new Exception( "var is null");
+            }
+        }
+        $var = null;
+
+        ///////////////////////////////////////////////////////////
+        ///
+        /* DB 연결 */
+        $db = new CDBControl();
+        if($db == null)
+        {
+            throw new CDBException(1, "", 'Could not connect to database server');
+        }
+
+
+        /* 쿼리 전송 */
+        $query = "SELECT * FROM `bus` WHERE `st_location`='";
+        $query .= $stLocation;
+        $query .= "' and `ar_location`='";
+        $query .= $arLocation;
+        if($busGrade != "all")
+        {
+            $query .= "' and `grade`='";
+            $query .= $busGrade;
+        }
+        $query .= "' and `st_time`>='";
+        $query .= $time . "'";
+        $query .= " and `st_time`<'";
+        $query .= $nextDay . "';";
+        $result = $db->query($query);
+        if($result == false)
+        {
+            throw new CDBException(2, "", '양식을 확인 해 주세요.');
+        }
+
+        $db->close();
+    }
+}
+catch (CDBException $e)
+{
+    $db->rollback();
+}
+catch (Exception $e)
+{
+    echo $e->getMessage();
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "../common/header.html";
+?>
+<link rel="stylesheet" href="css/reserve.css">
+
+///////////////////////////////////////////////////////////
+/// 예매 조회 폼
+<form action="" method="post" name="form" id="form" class="clearFix">
+    <fieldset>
+        <input type="hidden" name="lookup" value="true">
+        <div><label for="st_location">출발지</label></div>
+        <select name="st_location" id="st_location">
+            <option value="서울">서울</option>
+            <option value="인천">인천</option>
+            <option value="대전">대전</option>
+            <option value="전주">전주</option>
+            <option value="광주">광주</option>
+            <option value="대구">대구</option>
+            <option value="울산">울산</option>
+            <option value="부산">부산</option>
+        </select><br>
+
+        <div><label for="ar_location">도착지</label></div>
+        <select name="ar_location" id="ar_location">
+            <option value="서울">서울</option>
+            <option value="인천">인천</option>
+            <option value="대전">대전</option>
+            <option value="전주">전주</option>
+            <option value="광주">광주</option>
+            <option value="대구">대구</option>
+            <option value="울산">울산</option>
+            <option value="부산">부산</option>
+        </select><br>
+
+        <div id="start">출발 일시</div>
+        <select name="year" id="year">
+            <?php
+            for($i = 2017 ; $i <= 2018 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="year">년</label></div><br>
+
+        <select name="month" id="month">
+            <?php
+            for($i = 1 ; $i <= 12 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="month">월</label></div>
+
+        <select name="day" id="day">
+            <?php
+            for($i = 1 ; $i <= 31 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><day for="day">일</day></div>
+
+        <select name="hour" id="hour">
+            <?php
+            for($i = 0 ; $i < 24 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="hour">시</label></div>
+
+        <select name="min" id="min">
+            <?php
+            for($i = 0 ; $i < 60 ; $i += 10)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="min">분</label></div><br>
+
+        <div><label for="grade">버스 등급</label></div>
+        <select name="grade" id="grade">
+            <option value="all">전체등급</option>
+            <option value="일반고속">일반고속</option>
+            <option value="우등고속">우등고속</option>
+            <option value="심야우등">심야우등</option>
+        </select><br>
+
+        <div><label for="adult">어른</label></div>
+        <select name="adult" id="adult">
+            <?php
+            for($i = 0 ; $i <= 10 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select><br>
+
+        <div><label for="kid">아동</label></div>
+        <select name="kid" id="kid">
+            <?php
+            for($i = 0 ; $i <= 10 ; $i++)
+            {
+            ?>
+                <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select><br>
+
+        <input type="submit" id="submit" value="조회">
+    </fieldset>
+</form>
+
+///////////////////////////////////////////////////////////
+/// 예매 가능 리스트
+<div class="table">
+    <div class="thead">
+        <div class="tr clearFix">
+            <div class="td">출발시각</div>
+            <div class="td">버스등급</div>
+            <div class="td">버스회사</div>
+            <div class="td">잔여좌석</div>
+            <div class="td"></div>
+        </div>
+    </div>
+    <div class="tbody">
+        <?php
+        if(isset($result) == true)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $time = date_create($row['st_time']);
+        ?>
+                <div class="tr clearFix">
+                    <div class="td"><?= date_format($time, "G:i"); ?></div>
+                    <div class="td"><?= $row['grade'] ?></div>
+                    <div class="td"><?= $row['company'] ?></div>
+                    <div class="td"><?= $row['seat'] ?></div>
+                    <div class="td"><a href="reserveForm.html?idx=<?= $row['idx'] ?>&a=<?= $adult ?>&k=<?= $kid ?>">선택</a></div>
+                </div>
+        <?php
+            }
+        }
+        ?>
+
+
+    </div>
+</div>
+
+<?php
+include_once "../common/footer.html";
+?>

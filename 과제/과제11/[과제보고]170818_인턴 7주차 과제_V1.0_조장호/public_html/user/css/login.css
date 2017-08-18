@@ -1,0 +1,23 @@
+/**
+ * loginForm.css : 로그인 폼 페이지 css
+ */
+
+form div {
+    width: 400px;
+    margin: 0 auto;
+}
+
+form div div {
+    width: 200px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+form div input {
+    width: 170px;
+    float: left;
+}
+
+#btnSubmit {
+    float: none;
+}

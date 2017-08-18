@@ -1,0 +1,118 @@
+/**
+ * reseerveForm.css : 예매 결제 페이지 css
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+#person {
+    background-color: white;;
+    border: 0 none;
+}
+
+.tr-span {
+    height: 50px;
+    border-bottom: 1px solid gray;
+    line-height: 50px;
+}
+
+.tr-span span {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.pos {
+    width: 15px;
+    height: 15px;
+    border: 2px solid blue;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.impos {
+    width: 15px;
+    height: 15px;
+    border: 2px solid gray;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.select {
+    width: 15px;
+    height: 15px;
+    border: 2px solid red;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.seatWrap {
+    width: 750px;
+    display: block;
+    margin: 0 auto;
+    float: left;
+}
+
+.front-back {
+    width: 50px;
+    height: 300px;
+    border: 1px solid white;
+    background-color: antiquewhite;
+    float: left;
+}
+
+.door-driver {
+    width: 50px;
+    height: 120px;
+    border: 1px solid white;
+    background-color: antiquewhite;
+    float: left;
+}
+
+.blank {
+    width: 10px;
+    height: 120px;
+    float: left;
+}
+
+.blank-w {
+    width: 640px;
+    height: 50px;
+    float: left;
+}
+
+.seat {
+    width: 58px;
+    height: 60px;
+    border: 1px solid white;
+    background-color: aqua;
+    float: left;
+}
+
+.front-back+span {
+    color: orange;
+}
+
+form {
+    width: 360px;
+    margin: 0 auto;
+}
+
+form div {
+    width: 150px;
+}
+
+form input {
+    width: 170px;
+}
+
+form div,
+form input {
+    margin-top: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+#submit {
+    float: none;
+}

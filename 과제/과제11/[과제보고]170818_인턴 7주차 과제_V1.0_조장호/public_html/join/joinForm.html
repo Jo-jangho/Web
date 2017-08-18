@@ -1,0 +1,40 @@
+<?php
+/**
+ * joinForm.html : 회원가임 폼 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../common/header.html";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<link rel="stylesheet" href="css/join.css">
+<script type="text/javascript" src="js/join.js"></script>
+<form action="join.php" method="post" name="form" id="form" onsubmit="return check()">
+    <div class="clearFix">
+        <div><label for="ID">ID</label></div>
+        <input type="text" name="ID" id="ID">
+    </div>
+    
+    <div class="clearFix">
+        <div><label for="PW">PW</label></div>
+        <input type="password" name="PW" id="PW">
+    </div>
+    
+    <div class="clearFix">
+        <div><label for="cellPhone">휴대폰 번호</label></div>
+        <input type="text" name="cellPhone" id="cellPhone">
+    </div>
+    
+    <div id="btnSubmit">
+        <input type="submit" value="회원가입">
+    </div>
+</form>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+include_once "../common/footer.html";
+?>

@@ -1,0 +1,145 @@
+<?php
+/**
+ * busForm.html : 버스관리 페이지
+*/
+
+///////////////////////////////////////////////////////////
+///
+try
+{
+    /* 로그인 유무 예외 처리 */
+    session_start();
+    if(isset($_SESSION['login_user']) == false)
+    {
+        throw new Exception('로그인 하고 오세요');
+    }
+
+    $id = $_SESSION['login_user'];
+    if($id == null || $id != "root")
+    {
+        throw new Exception('관리자만 접근 가능합니다.');
+    }
+}
+catch(Exception $e)
+{
+    echo "<script>history.back();</script>";
+    echo $e->getMessage();
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "../common/header.html";
+?>
+
+<link rel="stylesheet" href="css/busForm.css">
+<script type="text/javascript" src="js/busForm.js"></script>
+
+<form action="busProcess.php" method="post" name="form" id="form" class="clearFix" onsubmit="return check();">
+    <fieldset>
+        <div><label for="bus_num">버스 번호</label></div>
+        <input type="text" name="bus_num" id="bus_num">
+
+        <div><label for="grade">버스 등급</label></div>
+        <select name="grade" id="grade">
+            <option value="일반고속">일반고속</option>
+            <option value="우등고속">우등고속</option>
+            <option value="심야우등">심야우등</option>
+        </select>
+
+        <div><label for="company">버스 회사</label></div>
+        <input type="text" name="company" id="company">
+
+        <div id="start">출발 일시</div>
+        <select name="year" id="year">
+            <?php
+            for($i = 2017 ; $i <= 2018 ; $i++)
+            {
+            ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="year">년</label></div>
+
+        <select name="month" id="month">
+            <?php
+            for($i = 1 ; $i <= 12 ; $i++)
+            {
+            ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="month">월</label></div>
+
+        <select name="day" id="day">
+            <?php
+            for($i = 1 ; $i <= 31 ; $i++)
+            {
+            ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><day for="day">일</day></div>
+
+        <select name="hour" id="hour">
+            <?php
+            for($i = 0 ; $i < 24 ; $i++)
+            {
+            ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="hour">시</label></div>
+
+        <select name="min" id="min">
+            <?php
+            for($i = 0 ; $i < 60 ; $i += 10)
+            {
+            ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        <div><label for="min">분</label></div>
+
+        <div><label for="st_location">출발지</label></div>
+        <select name="st_location" id="st_location">
+            <option value="서울">서울</option>
+            <option value="인천">인천</option>
+            <option value="대전">대전</option>
+            <option value="전주">전주</option>
+            <option value="광주">광주</option>
+            <option value="대구">대구</option>
+            <option value="울산">울산</option>
+            <option value="부산">부산</option>
+        </select>
+
+        <div><label for="ar_location">도착지</label></div>
+        <select name="ar_location" id="ar_location">
+            <option value="서울">서울</option>
+            <option value="인천">인천</option>
+            <option value="대전">대전</option>
+            <option value="전주">전주</option>
+            <option value="광주">광주</option>
+            <option value="대구">대구</option>
+            <option value="울산">울산</option>
+            <option value="부산">부산</option>
+        </select>
+
+        <div><label for="money">금액</label></div>
+        <input type="text" name="money" id="money">
+    </fieldset>
+    <input type="submit" value="만들기">
+</form>
+
+<?php
+include_once "../common/footer.html";
+?>

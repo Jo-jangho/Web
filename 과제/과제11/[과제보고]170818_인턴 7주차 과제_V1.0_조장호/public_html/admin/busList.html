@@ -1,0 +1,96 @@
+<?php
+/**
+ * busList.css : 버스관리 리스트 페이지 css
+*/
+
+///////////////////////////////////////////////////////////
+///
+include_once "../Class/CDBControl.php";
+
+///////////////////////////////////////////////////////////
+///
+try
+{
+    /* 로그인 유무 예외 처리 */
+    session_start();
+    if(isset($_SESSION['login_user']) == false)
+    {
+        throw new Exception('로그인 하고 오세요');
+    }
+
+    /* DB 연결 */
+    $db = new CDBControl();
+    if($db == null)
+    {
+        throw new CDBException(1, "", 'Could not connect to database server');
+    }
+
+    /* 쿼리 전송 */
+    $query = "SELECT * FROM `bus` ORDER BY `bus_num`";
+    $result = $db->query($query);
+    if($result == false)
+    {
+        throw new CDBException(2, "", 'SELECT 쿼리를 확인 해 주세요.');
+    }
+
+    $db->close();
+}
+catch (CDBException $e)
+{
+
+}
+catch (Exception $e)
+{
+    echo "<script>history.back();</script>";
+    echo $e->getMessage();
+}
+
+///////////////////////////////////////////////////////////
+///
+include_once "../common/header.html";
+?>
+
+<link rel="stylesheet" href="css/busList.css">
+<script language="JavaScript" src="js/busList.js"></script>
+<div class="table">
+    <div class="thead">
+        <div class="tr clearFix">
+            <div class="td">버스번호</div>
+            <div class="td">버스등급</div>
+            <div class="td">버스회사</div>
+            <div class="td">출발시간</div>
+            <div class="td">출발지</div>
+            <div class="td">도착지</div>
+            <div class="td">좌석</div>
+            <div class="td">금액</div>
+            <div class="td">삭제</div>
+            <div class="td"></div>
+        </div>
+    </div>
+    <div class="tbody">
+        <div class="tr clearFix">
+            <?php
+            while($row = $result->fetch_assoc())
+            {
+                $time = date_create($row['st_time']);
+            ?>
+                <div class="td"><?= $row['bus_num'] ?></div>
+                <div class="td"><?= $row['grade'] ?></div>
+                <div class="td"><?= $row['company'] ?></div>
+                <div class="td"><?= date_format($time, "G:i"); ?></div>
+                <div class="td"><?= $row['st_location'] ?></div>
+                <div class="td"><?= $row['ar_location'] ?></div>
+                <div class="td"><?= $row['seat'] ?></div>
+                <div class="td"><?= $row['money'] ?></div>
+                <div class="td"><button onclick="deleteBus(<?= $row['idx'] ?>)">삭제</button></div>
+                <div class="td"></div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
+<?php
+include_once "../common/footer.html";
+?>

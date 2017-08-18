@@ -1,0 +1,32 @@
+<?php
+/**
+ * login.html : 로그인 폼 페이지
+ */
+
+///////////////////////////////////////////////////////////
+/// include
+include_once "../common/header.html";
+?>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<link rel="stylesheet" href="css/login.css">
+<form action="login.php" method="post">
+    <div class="clearFix">
+        <div><label for="ID">ID</label></div>
+        <input type="text" name="ID" id="ID">
+    </div>
+
+    <div class="clearFix">
+        <div><label for="PW">PW</label></div>
+        <input type="password" name="PW" id="PW">
+    </div>
+
+    <input type="submit" value="로그인" id="btnSubmit">
+</form>
+
+<!--///////////////////////////////////////////////////////////
+///-->
+<?php
+include_once "../common/footer.html";
+?>
